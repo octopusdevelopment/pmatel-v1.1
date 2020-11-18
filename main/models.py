@@ -38,13 +38,23 @@ class Produit(models.Model):
         verbose_name_plural = 'Produits'
 
 
+class Solution(models.Model):
+    nom         = models.CharField( max_length=50)
+    slug        = models.SlugField( max_length=70) 
+    photo       = models.ImageField(verbose_name='Photo de la solution', upload_to='produits/')
+    description = RichTextField(verbose_name='Text en plus', blank= True, null=True)
+    photo_2     = models.ImageField(verbose_name='Photo de la solution', upload_to='produits/', blank= True)
 
-class Slide(models.Model):
-    title = models.CharField(verbose_name='titre' ,max_length= 200, blank = True)
-    image = models.ImageField(upload_to= 'slides/')
-    class Meta:
-        verbose_name = "Photo page d'accueil"
-        verbose_name_plural = "Photos page d'accueil"
+
+
+
+
+# class Slide(models.Model):
+#     title = models.CharField(verbose_name='titre' ,max_length= 200, blank = True)
+#     image = models.ImageField(upload_to= 'slides/')
+#     class Meta:
+#         verbose_name = "Photo page d'accueil"
+#         verbose_name_plural = "Photos page d'accueil"
 
 
 
@@ -70,6 +80,8 @@ class ContactForm(models.Model):
 
     class Meta:
         verbose_name = 'Formulaire de contact'
+
+
 
 
 

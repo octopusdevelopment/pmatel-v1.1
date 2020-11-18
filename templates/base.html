@@ -1,288 +1,200 @@
 {% load static %}
 {% static "img" as baseUrl %}
-<!doctype html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="zxx">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SUP ELECTROTECH</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="Staging Template">
+    <meta name="keywords" content="Staging, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Staging | Template</title>
 
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
-    <!-- Place favicon.ico in the root directory -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
-    <!-- header-start -->
-    <header>
-        <div class="header-area ">
-            <div class="header-top_area d-none d-lg-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-md-6 ">
-                            <div class="social_media_links">
-                                <a href="#">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6">
-                            <div class="short_contact_list">
-                                <ul>
-                                    <li><a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a></li>
-                                    <li><a href="#"> <i class="fa fa-phone"></i> 1601-609 6780</a></li>
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__widget">
+            <span>Call us for any questions</span>
+            <h4>+01 123 456 789</h4>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'solution' %}">Solutions</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./Project-details.html">Project Details</a></li>
+                                    <li><a href="./about.html">About</a></li>
+                                    <li><a href="./services.html">Services</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
-                            </div>
-                        </div>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__widget">
+                        <span>Call us for any questions</span>
+                        <h4>+01 123 456 789</h4>
                     </div>
                 </div>
             </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-xl-3 col-lg-2">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="{% static 'img/logo.png' %}" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-7">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a class="active" href="{% url 'index' %}">home</a></li>
-                                            <li><a href="{% url 'about' %}">About</a></li>
-                                            <li><a href="service.html">Produits</a></li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
-                                                </ul>
-                                            </li>
-                                            <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                     <li><a href="elements.html">elements</a></li>
-                                                    <li><a href="Portfolio.html">Portfolio</a></li>
-                                                    <li><a href="portfolio_details.html">Portfolio details</a></li>
-                                                </ul>
-                                            </li> -->
-                                            <li><a href="{% url 'contact' %}">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment">
-                                    <div class="search_button">
-                                        <a href="#">
-                                            <i class="ti-search"></i>
-                                        </a>
-                                    </div>
-                                    <div class="book_btn d-none d-lg-block">
-                                        <a class="popup-with-form" href="#test-form">un devis ?</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
     </header>
-    <!-- header-end -->
-{% block content %}
-  
-{% endblock content %}
-    
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="footer_top">
-            <div class="container">
+    <!-- Header Section End -->
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+        <div class="container">
+            <div class="footer__top">
                 <div class="row">
-                    <div class="col-xl-3 col-md-6 col-lg-4">
-                        <div class="footer_widget">
-                            <div class="footer_logo">
-                                <a href="#">
-                                    <img src="{% static 'img/footer_logo.png' %}" alt="">
-                                </a>
-                            </div>
-                            <p>
-                                Base <br> line
-                            </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
+                    <div class="col-lg-8 col-md-6">
+                        <div class="footer__top__text">
+                            <h2>Ready To Work With Us?</h2>
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                    Solutions
-                            </h3>
-                            <ul>
-                                <li><a href="#">détection intrusion</a></li>
-                                <li><a href="#">détection incendie</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                    Liens rapides
-                            </h3>
-                            <ul>
-                                <li><a href="#">A propos</a></li>
-                                <li><a href="#">Produits</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Devis Gratuit</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Address
-                            </h3>
-                            <ul>
-                                    <li>200, D-block, Green lane Blida</li>
-                                    <li>+213 367 467 552</li>
-                                    <li><a href="#"> contact@sup.com</a></li>
-                                </ul>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer__top__newslatter">
+                            <form action="#">
+                                <input type="text" placeholder="Enter your email...">
+                                <button type="submit"><i class="fa fa-send"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                        </div>
+                        <p>7176 Blue Spring Lane <br />Santa Monica, CA 90403</p>
+                        <ul>
+                            <li>Info.colorlib@gmail.com</li>
+                            <li>+84 123 456 789</li>
+                        </ul>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Company</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Our Works</a></li>
+                            <li><a href="#">Career</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Services</h6>
+                        <ul>
+                            <li><a href="#">Architecture</a></li>
+                            <li><a href="#">Interior Design</a></li>
+                            <li><a href="#">Exterior Design</a></li>
+                            <li><a href="#">Planning</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h6>Get In Touch</h6>
+                        <p>7176 Blue Spring Lane <br />Santa Monica, CA 90403</p>
+                        <ul>
+                            <li>Info.colorlib@gmail.com</li>
+                            <li>+84 123 456 789</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
                 <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | powred by <a href="#" target="_blank">OCTOPUS CONSULTING</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="copyright__text">
+                            <p>Copyright ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                    aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                    target="_blank">Colorlib</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="copyright__widget">
+                            <a href="#">Terms of use</a>
+                            <a href="#">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!--/ footer end  -->
+    <!-- Footer Section End -->
 
-    <!-- link that opens popup -->
-
-    <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
-        <div class="popup_box ">
-            <div class="popup_inner">
-                <div class="popup_header">
-                    <h3>Demandez un devis</h3>
-                </div>
-                <div class="custom_form">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <input type="text" placeholder="Votre Nom">
-                            </div>
-                            <div class="col-xl-12">
-                                <input type="email" placeholder="Email">
-                            </div>
-                            <div class="col-xl-12">
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                            </div>
-                            <div class="col-xl-12">
-                                <button type="submit" class="boxed-btn3">Envoyer</button>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <!-- form itself end -->
-
-    <!-- JS here -->
-    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/ajax-form.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script>
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/scrollIt.js' %}"></script>
-    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <script src="{% static 'js/nice-select.min.js' %}"></script>
-    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <script src="{% static 'js/gijgo.min.js' %}"></script>
     <script src="{% static 'js/slick.min.js' %}"></script>
-    <!--contact js-->
-    <script src="{% static 'js/contact.js' %}"></script>
-    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-    <script src="{% static 'js/jquery.form.js' %}"></script>
-    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'js/mail-script.js' %}"></script>
-
     <script src="{% static 'js/main.js' %}"></script>
-    {% block script %}
-      
-    {% endblock script %}
 </body>
 
 </html>
