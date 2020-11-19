@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% static "img" as baseUrl %}
+
 {% block content %}
 
 <!-- Hero Section Begin -->
@@ -7,9 +9,9 @@
     <div class="hero__slider owl-carousel">
         <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.jpg' %}">
             <div class="hero__text">
-                <h2>Distributeur CAME BTP exclusif </h2>
+                <h2>Distributeur CAME BPT exclusif </h2>
                 <a href="#" class="primary-btn">Découvrez PMATEL</a>
-                <a href="#" class="more_btn">Discover more</a>
+                <a href="#footer" class="more_btn">En Savoir Plus</a>
                 <div class="hero__social">
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -18,11 +20,11 @@
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.jpg' %}">
+        <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
             <div class="hero__text">
-                <h2>Distributeur CAME BTP exclusif </h2>
+                <h2 class="" >Distributeur CAME BPT exclusif </h2>
                 <a href="#" class="primary-btn">Découvrez PMATEL</a>
-                <a href="#" class="more_btn">Discover more</a>
+                <a href="#footer" class="more_btn">En Savoir Plus</a>
                 <div class="hero__social">
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -40,9 +42,9 @@
 <!-- About Section Begin -->
 <section class="about spad">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="about__text">
+        <div class="row ">
+            <div class="col-lg-6 ">
+                <div class="about__text row justify-content-center">
                     <div class="section-title">
                         <!-- <span>Qui somme nous ?</span> -->
                         <h2 class="text-center">Là où il y a un problème, <br> nous apportons toujours une solution,
@@ -79,16 +81,21 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="project__slider owl-carousel">
-                <div class="col-lg-3">
-                    <div class="project__slider__item set-bg" data-setbg="{% static 'img/project/project-1.jpg' %}">
-                        <div class="project__slider__item__hover">
-                            <h5>INTERPHONE & VISIOPHONE </h5>
+                {% for solution in solutions %}
+                    <div class="col-lg-3">
+                        <div class="project__slider__item set-bg"  data-setbg={{solution.photo_2.url}}>
+                            <div class="project__slider__item__hover">
+                                <h5>{{solution.name}}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
+                {% endfor %}
+                
+                
+                <!-- <div class="col-lg-3">
                     <div class="project__slider__item set-bg" data-setbg="{% static 'img/project/project-2.jpg' %}">
                         <div class="project__slider__item__hover">
                             <h5 class="text-uppercase">éclairage</h5>
@@ -116,7 +123,7 @@
                             <h5>Lower River Street Astoria</h5>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

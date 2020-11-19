@@ -4,7 +4,7 @@ from django.core.mail import send_mail, EmailMessage
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
-from .models import ContactForm
+from .models import ContactForm, Solution
 # Create your views here.
 
 class Home(TemplateView):
@@ -12,7 +12,7 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["slides"] = Slide.objects.all()
+        context["solutions"] = Solution.objects.all()
         # context["cat_prod"] = Categorie_produit.objects.all()
         # context["cat_sol"] = Categories_Solution.objects.all()
         return context
@@ -47,6 +47,8 @@ class SolutionView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["solutions"] = Solution.objects.all()
+
         # context["cat_sol"] = Categories_Solution.objects.all()
         return context
     

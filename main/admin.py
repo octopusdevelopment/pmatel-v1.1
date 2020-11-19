@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Produit
+from .models import Produit, Solution
 
 admin.autodiscover()
 admin.site.enable_nav_sidebar = False
@@ -14,7 +14,15 @@ class ProduitAdmin(admin.ModelAdmin):
     list_filter = ('name',)
     search_fields = ('id', 'name',)
 
+
+class SolutionAdmin(ProduitAdmin):
+    pass
+
 admin.site.register(Produit, ProduitAdmin)
+admin.site.register(Solution, SolutionAdmin)
+
+
+
 
 # admin.site.register(Slide, CategoryAdmin)
 # admin.site.register(Categorie_produit, CategoryAdmin)
