@@ -7,7 +7,7 @@ admin.site.enable_nav_sidebar = False
 
 
 class ProduitAdmin(admin.ModelAdmin):
-    list_display = ('id','name')
+    list_display = ('id','name', 'solution')
     prepopulated_fields = {"slug": ("name",)}
     list_display_links = ('id','name',)
     list_per_page = 40
@@ -16,7 +16,8 @@ class ProduitAdmin(admin.ModelAdmin):
 
 
 class SolutionAdmin(ProduitAdmin):
-    pass
+    list_display = ('id','name')
+
 
 admin.site.register(Produit, ProduitAdmin)
 admin.site.register(Solution, SolutionAdmin)

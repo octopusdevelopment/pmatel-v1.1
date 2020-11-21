@@ -38,26 +38,26 @@
         $(".offcanvas-menu-overlay").removeClass("active");
     });
 
-    $("a").on('click', function(event) {
+    $("a").on('click', function (event) {
 
         if (this.hash !== "") {
-          event.preventDefault();
-    
-          var hash = this.hash;
-    
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 1100, function(){
-   
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
-          });
+            event.preventDefault();
+
+            var hash = this.hash;
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1100, function () {
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
         } // End if
-      });
- 
+    });
+
     /*------------------
-		Navigation
-	--------------------*/
+        Navigation
+    --------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
@@ -136,8 +136,8 @@
         asNavFor: '.testimonial__client',
         prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"><i></i></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"><i></i></i></button>',
-      });
-      $('.testimonial__client').slick({
+    });
+    $('.testimonial__client').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         asNavFor: '.testimonial__carousel',
@@ -147,22 +147,22 @@
         focusOnSelect: true,
         responsive: [
             {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 3,
-              }
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                }
             },
             {
-              breakpoint: 575,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                variableWidth: false
-              }
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    variableWidth: false
+                }
             }
-          ]
-        
-      });
+        ]
+
+    });
 
     /*---------------------------------
         Logo Carousel

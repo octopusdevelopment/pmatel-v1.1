@@ -31,15 +31,15 @@ class AboutView(TemplateView):
 
 
 
-# class SolutionView(TemplateView):
-#     template_name = "projects.html"
+class SolutionDetailView(TemplateView):
+    template_name = "solution-detail.html"
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         # context["produits"] = Produit2.objects.all()
-#         # context["cat_sol"] = Categories_Solution.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context["produits"] = Produit2.objects.all()
+        # context["cat_sol"] = Categories_Solution.objects.all()
 
-#         return context
+        return context
 
 
 class SolutionView(TemplateView):

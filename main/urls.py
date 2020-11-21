@@ -1,15 +1,17 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import Home, AboutView, ContactView, SolutionView
+from .views import Home, AboutView, ContactView, SolutionView, SolutionDetailView
 #  , CatalogueListView, SolutionView, SolutionDetail, ContactFormView, PartenaireView, GammeDetailList, BlogView, PostDetail
 urlpatterns = [
     path('', Home.as_view(), name= 'index'),
     path('about/', AboutView.as_view(), name= 'about'),
 
     # # path('/', solution.as_view(), name= 'catalogue'),
+    path('detail/', SolutionDetailView.as_view(), name= 'detail'),
     # path('produits/', CatalogueListView.as_view(), name= 'produits'),
     path('solution/', SolutionView.as_view(), name= 'solution'),
+    # path('solution/<slug:slug>/', SolutionDetail.as_view(), name= 'solution-detail'),
     # path('solution/<slug:slug>/', SolutionDetail.as_view(), name= 'solution-detail'),
     # path('actualite/<slug:slug>/', PostDetail.as_view(), name= 'post-detail'),
     path('contact/', ContactView.as_view(), name= 'contact'),
