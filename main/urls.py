@@ -8,9 +8,9 @@ urlpatterns = [
     path('about/', AboutView.as_view(), name= 'about'),
 
     # # path('/', solution.as_view(), name= 'catalogue'),
-    path('detail/', SolutionDetailView.as_view(), name= 'detail'),
     # path('produits/', CatalogueListView.as_view(), name= 'produits'),
     path('solution/', SolutionView.as_view(), name= 'solution'),
+    path('solution/<slug:slug>/', SolutionDetailView.as_view(), name= 'produit'),
     # path('solution/<slug:slug>/', SolutionDetail.as_view(), name= 'solution-detail'),
     # path('solution/<slug:slug>/', SolutionDetail.as_view(), name= 'solution-detail'),
     # path('actualite/<slug:slug>/', PostDetail.as_view(), name= 'post-detail'),

@@ -4,7 +4,7 @@ from django.core.mail import send_mail, EmailMessage
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
-from .models import ContactForm, Solution
+from .models import ContactForm, Solution, Produit
 # Create your views here.
 
 class Home(TemplateView):
@@ -31,12 +31,23 @@ class AboutView(TemplateView):
 
 
 
-class SolutionDetailView(TemplateView):
-    template_name = "solution-detail.html"
+class SolutionDetailView(ListView):
+    model = Produit
+    template_name = "solution-details.html"
+    context_object_name = 'solution'
+
+    def get_queryset(self):
+        self.solution = get_object_or_404(Solution, slug=self.kwargs['slug'])
+        return self.solution
+    
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["produits"] = Produit2.objects.all()
+        # context["produits"] = Produit.objects.all()
+        context["produits"] = Produit.objects.filter(solution=self.solution)
+        context["solutions"] = Solution.objects.all()
+
         # context["cat_sol"] = Categories_Solution.objects.all()
 
         return context

@@ -2576,6 +2576,24 @@ ol {
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
+
+@media only screen and (max-width: 992px) {
+	.page-produits {
+		background-color: #000;
+	}
+	.page-produits .container-product {
+		background-color: #ffffff;
+		width: 100%;
+		border-radius: 10px;
+		padding: 30px;
+		/* margin-bottom: 25px!important; */
+	}
+	.badge-dom{
+		font-size: 25px;
+	}
+}
+
+
 @media only screen and (min-width: 1200px) {
 	.container {
 		max-width: 1170px;
