@@ -178,7 +178,15 @@ ol {
 .primary-btn.normal-btn:after {
 	border-color: #c4c4c4;
 }
-
+.primary-btn.about{
+	background-color: #ffffff!important;
+	color: #333!important;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 16px 50px;
+	position: relative;
+}
 .primary-btn:before {
 	position: absolute;
 	left: 0;

@@ -25,6 +25,8 @@ class AboutView(TemplateView):
         # context["slides"] = SliderAPropos.objects.all()
         # context["cat_prod"] = Categorie_produit.objects.all()
         # context["cat_sol"] = Categories_Solution.objects.all()
+        context["solutions"] = Solution.objects.all()
+
 
         return context
 
@@ -58,6 +60,7 @@ class SolutionView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["solutions"] = Solution.objects.all()
         context["solutions"] = Solution.objects.all()
 
         # context["cat_sol"] = Categories_Solution.objects.all()
@@ -102,6 +105,8 @@ class ContactFormView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["solutions"] = Solution.objects.all()
+
         # context["cat_sol"] = Categories_Solution.objects.all()
         return context
 

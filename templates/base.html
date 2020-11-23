@@ -60,13 +60,16 @@
                 <div class="col-lg-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
-                            <li class="{% if request.path == '/solution/' %} active {% endif %}"><a  href="{% url 'solution' %}">Solutions</a></li>
-                            <li class="{% if request.path == '/about/' %} active {% endif %}"><a  href="{% url 'about' %}">About</a></li>
-                        </li>
-                        <!-- <li><a href="./blog.html">Blog</a></li> -->
-                        <li><a href="./contact.html">Contact</a></li>
-                        <!-- <li><a class="" href="#">Pages</a>
+                            <li class="{% if request.path == '/' %} active {% endif %}"><a
+                                    href="{% url 'index' %}">Home</a></li>
+                            <li class="{% if request.path == '/solution/' %} active {% endif %}"><a
+                                    href="{% url 'solution' %}">Solutions</a></li>
+                            <li class="{% if request.path == '/about/' %} active {% endif %}"><a
+                                    href="{% url 'about' %}">About</a></li>
+                            </li>
+                            <!-- <li><a href="./blog.html">Blog</a></li> -->
+                            <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+                            <!-- <li><a class="" href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./Project-details.html">Project Details</a></li>
                                 <li><a href="./about.html">About</a></li>
@@ -113,16 +116,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-2 col-md-5 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
                         </div>
-                        <p>7176 Blue Spring Lane <br />Santa Monica, CA 90403</p>
-                        <ul>
-                            <li>Info.colorlib@gmail.com</li>
-                            <li>+84 123 456 789</li>
-                        </ul>
+                        <p>Coopérative les vergers 2 – N°10
+                            <br />Birkhadem - Alger – ALGERIE</p>
+
                         <div class="footer__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -133,33 +134,37 @@
                 </div>
                 <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h6>Company</h6>
+                        <h6>Liens Rapides</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Our Works</a></li>
-                            <li><a href="#">Career</a></li>
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">A propos</a></li>
+                            <li><a href="{% url 'solution' %}">Solution</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="footer__widget">
                         <h6>Solutions</h6>
                         <ul>
                             {% for solution in solutions %}
-                                <li><a href="{{ solution.get_absolute_url }}">{{solution.name}}</a></li>
+                            <li><a href="{{ solution.get_absolute_url }}">{{solution.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__address">
-                        <h6>Get In Touch</h6>
-                        <p>7176 Blue Spring Lane <br />Santa Monica, CA 90403</p>
+                        <h6>Coordonnées</h6>
+                        <p>Coopérative les vergers 2 – N°10
+                            <br />Birkhadem - Alger – ALGERIE</p>
                         <ul>
                             <li>Info.colorlib@gmail.com</li>
-                            <li>+84 123 456 789</li>
+                            <li>+213 770 638 153</li>
+                            <li>+213 550 93 61 28</li>
+                            <li>+213 23 579 560</li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -171,7 +176,7 @@
                             <p>Copyright ©
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> Tout droit réservé PMATEL  
+                                </script> Tout droit réservé PMATEL
                             </p>
                         </div>
                     </div>
