@@ -16,7 +16,8 @@ class Solution(models.Model):
     
     def __str__(self):
         return self.name
-
+    def get_absolute_url(self):
+        return reverse("produit", args=[str(self.slug)])
 
 
 
@@ -37,9 +38,14 @@ class Produit(models.Model):
     def __str__(self):
         return self.name
 
+
+    
+
+
     class Meta:
         verbose_name = 'Produit'
         verbose_name_plural = 'Produits'
+
 
 
 

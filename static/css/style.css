@@ -459,7 +459,9 @@ ol {
 	max-width: 820px;
 	text-align: center;
 }
-
+h2.sarl {
+	color: #000!important;
+}
 .hero__text h2 {
 	color: #ffffff;
 	font-size: 72px;
@@ -1606,7 +1608,7 @@ ol {
 }
 
 .counter .counter__item .counter__item__text h5 {
-	color: #ffffff;
+	color: #000000;
 }
 
 .counter__content {
