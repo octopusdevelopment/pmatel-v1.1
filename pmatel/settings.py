@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'ckeditor_uploader',
     'debug_toolbar',
     # 'ckeditor_uploader', ## pour les fichiers static
 ]
@@ -122,7 +123,17 @@ USE_TZ = True
 
 
 
-
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'skin': 'moono',
+            'toolbar': 'full', 
+            "removePlugins": "stylesheetparser",
+            'toolbar_Custom': [
+                ['Bold', 'Link', 'Unlink', 'Image'], 
+            ], 
+            'extraPlugins': ','.join(['codesnippet']),
+}}
 
 
 # Static files (CSS, JavaScript, Images)
@@ -136,7 +147,7 @@ STATICFILES_DIRS = [
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 MEDIA_URL ='/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

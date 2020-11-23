@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Blog Details Section Begin -->
+    {% for produit in produit %}
+      <h1>{{produit.name}}</h1>
+    {% endfor %}
+    <div class="breadcrumb-option spad set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>{{solution.name}}</h2>
+                        <div class="breadcrumb__links">
+                            <a href="{% url 'index' %}">Home</a>
+                            <a href="{% url 'solution' %}">Solutions</a>
+                            <span>{{solution.name}}</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-10">
+                    <div class="blog__details__content">
+                        {% if request.path == '/solution/domotique/' %}
+                            <div class="blog__details__title">
+                                <h2 class="text-center">Fonctionalité principales</h2>
+                            
+                                
+                                <img src="{% static 'img/fonctions.png' %}" alt="">
+                                <p>{{solution.description|safe}}</p>
+                                
+                            </div>
+                        {% else %}
+                            <div class="blog__details__title">
+                            
+                                <h2 class="h1">{{solution.name}}</h2>
+                                
+                                <img src="{{solution.photo.url}}" alt="">
+                                <p>{{solution.description|safe}}</p>
+                            </div>
+    
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <!-- Breadcrumb Section End -->
+    
+    <!-- domotique 2 -->
+    <!-- About Section Begin -->
+<!-- {% if request.path == '/solution/domotique/' %}
+    <section class="about spad">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-6 ">
+                    <div class="about__text row justify-content-center">
+                        <div class="section-title">
+                            <h2 class="text-center">Là où il y a un problème, <br> nous apportons toujours une solution,
+                                <br> le cas contraire,<br> plus de confort</h2>
+                        </div>
+                     
+                        <a href="#" class="primary-btn normal-btn ">En Savoir Plus</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__pic">
+                        <div class="about__pic__inner">
+                            <img src="{% static 'img/about-pic.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endif %} -->
+    <!-- domotique 2 FIN -->
+
+    {% if produits %}
+
+
+<section class="page-produits">
+
+    <!-- About Section Begin -->
+    <section class=" spad">
+        <div class="container ">
+            {% for produit in produits %}
+                {% if produit.name == "THERMORÉGULATION"  %}
+                    <section class="blog-details spad">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="blog__details__content">
+                                        <div class="blog__details__title">
+                                        
+                                            <h2 class="text-center">{{produit.name}}</h2>
+                                            <img src="{{produit.photo.url}}" alt="">
+                                            {% if produit.description|length > 300 %}
+                                            <p class="collapse text-danger" id="big-text-2">{{produit.description|safe}}</p>
+                                            {% else %}
+                                                <p>{{produit.description|safe}}</p>
+                                            {% endif %}
+                                            <div class="">
+                                                <span class="primary-btn normal-btn" data-toggle="collapse" href="#big-text-2" role="button" aria-expanded="false" aria-controls="big-text-2">Lire Plus</span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </section>
+                {% elif produit.name == "automatisme & scénarios" %}
+                <section class="about__text spad">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="blog__details__content">
+                                    <div class="blog__details__title">
+                                    
+                                        <h2 class="text-center">{{produit.name}}</h2>
+                                        <img src="{{produit.photo.url}}" alt="">
+                                        <p>{{produit.description|safe|linebreaks}}</p>
+                                    </div>
+                                    <div class="blog__details__text">
+                                        
+                                        
+                                        <p class="collapse" id="big-text">
+                                            Les moteurs des volets roulants ou des stores, les portails et les portes automatique le système d’arrosage peuvent être contrôlés depuis un point unique ou depuis plusieurs points positionnés dans la pièce. <br>
+
+                                            Ce contrôle n’est plus effectué aujourd’hui au moyen de commandes fixes et définies comme une installation électrique traditionnelle, mais selon des logiques programmables, des positions variables et des fonction a développer en fonction de nos exigences. <br>
+
+                                            La gestion du système par des scénarios permet d’effectuer par le biais d’une seule commande des opérations qui hier étaient encore compliquer et labourieuse.il suffi de pensé a celles effectuées avant de sortir de la maison u avant d’aller au lit comme par exemple éteindre les lumières baisser les volets et activer le system antivol dans les zones a protéger bref des opérations qui ne requièrent aujourd’hui qu’une seule commande a lancé depuis un point unique sans devoir se déplacer dans toute la maison.
+                                            La connexion par le biais d’un seul câble bus entre tout les dispositifs installés permet en outre de développer et de modifier le système a tout moment en fonction des différentes exigence et de différents style de vie , même en cas de maison déjà meublée et habiter ou en cas de restructurions.
+                                        </p>
+                                        <div class="">
+                                            <span class="primary-btn normal-btn" data-toggle="collapse" href="#big-text" role="button" aria-expanded="false" aria-controls="big-text">Lire Plus</span>
+                                        </div>
+                                    </div> 
+                                    <div class="row d-flex justify-content-center">
+                                        <h2 class="badge-dom"> <span class="m-3 badge badge-primary">Volets roulants & stores</span> </h2>
+                                        <h2 class="badge-dom"> <span class="m-3 badge badge-success">Scenarios</span> </h2>
+                                        <h2 class="badge-dom"> <span class="m-3 badge badge-secondary">Arrosage</span> </h2>
+                                        <h2 class="badge-dom"> <span class="m-3 badge badge-danger">Porte & portails</span> </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                
+                </section>
+
+                {% elif produit.name == "CONTRÔLE A DISTANCE" %}
+                <div class="row {% cycle 'flex-row' 'flex-row-reverse' %} container-product">
+                    <div class="col-lg-6 ">
+                        <div class="about__text row justify-content-center d-block">
+                            <div class="section-title">
+                                <h2 class="text-center">{{produit.name}}</h2>
+                            </div>
+                            {% if produit.sous_titre %}
+                                <div class="sous-titre">
+                                    <h4 class="text-primary">
+                                        {{produit.sous_titre}}
+                                    </h4>
+                                </div>
+                            {% endif %}
+                            <div class="about__para__text">
+                                <p>{{produit.description|safe}}</p>
+                                {% if produit.name == "éclairages" %}
+                                <div class="row d-flex justify-content-center">
+                                    <h2 class="badge-dom"> <span class="m-3 badge badge-primary">DALI</span> </h2>
+                                    <h2 class="badge-dom"> <span class="m-3 badge badge-success">RGB</span> </h2>
+                                    <h2 class="badge-dom"> <span class="m-3 badge badge-secondary">DIMER</span> </h2>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about__pic">
+                            <div class="">
+                                <img class="img-fluid " src="{{produit.photo.url}}" alt="{{produit.name}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                {% else %}
+                <div class="row {% cycle 'flex-row' 'flex-row-reverse' %} container-product">
+                    <div class="col-lg-6 ">
+                        <div class="about__text row justify-content-center d-block">
+                            <div class="section-title">
+                                <h2 class="text-center">{{produit.name}}</h2>
+                            </div>
+                            {% if produit.sous_titre %}
+                                <div class="sous-titre">
+                                    <h4 class="text-primary">
+                                        {{produit.sous_titre}}
+                                    </h4>
+                                </div>
+                            {% endif %}
+                            <div class="about__para__text">
+                                <p>{{produit.description|safe}}</p>
+                                {% if produit.name == "éclairages" %}
+                                <div class="row d-flex justify-content-center">
+                                    <h2 class="badge-dom"> <span class="m-3 badge badge-primary">DALI</span> </h2>
+                                    <h2 class="badge-dom"> <span class="m-3 badge badge-success">RGB</span> </h2>
+                                    <h2 class="badge-dom"> <span class="m-3 badge badge-secondary">DIMER</span> </h2>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about__pic">
+                            <div class="">
+                                <img class="img-fluid " src="{{produit.photo.url}}" alt="{{produit.name}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                    {% endif %}
+
+            
+            {% endfor %}
+        </div>
+    </section>
+<!-- About Section End -->
+{% endif %}
+
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-10">
+                    <div class="blog__details__content">
+                        <div class="blog__details__title">
+                           
+                            <h2>Target and Amazon Shopping List for Home Stagers</h2>
+                            <img src="{% static 'img/blog/details/blog-details.jpg' %}" alt="">
+                            <p>Forget Ebay and other forms of advertising for your property that costs you hard earned
+                                money. Properties have ready several locations around the world to take your free
+                            listings for any luxury property you have.</p>
+                        </div>
+                        <!-- <div class="blog__details__text">
+                            <p>Each location web site is purpose built so every Search Engine will pick up new listings
+                                within minutes. This way your customers only have to type in keywords relating to their
+                                search for a luxury home and the Search Engine will show the Invest Asset web site
+                            applicable to their location they are looking for.</p>
+                            <p>Most real estate companies are way too busy with selling their client’s properties to put
+                                any effort forth to their web site. Hence, making it difficult for web surfers to find
+                            their listings.</p>
+                        </div> -->
+                        <!-- <div class="blog__item__quote">
+                            <p>“Without question this is the stager you want to use! Jennifer staged a hard to sell home
+                            for me and we sold it fast! …. Jennifer made it possible.”</p>
+                            <span>Martin Lockhart</span>
+                        </div> -->
+                        <!-- <div class="blog__details__text">
+                            <p>Now times have changed and we at Investment Assets Properties are thinking of the
+                                customer before the business. If you have a property in a location not listed at
+                                Investment Assets Properties. Don’t worry. A quick email to us will ensure your location
+                            is built to accommodate your listing.</p>
+                            <p>Selling your luxury home, condominium or property should not be a painstaking event. It
+                                should be easy and stress free and it should be able to be advertised on a global scale
+                                for free. Investment Assets Properties can and will do this for you in a hassle free
+                            way.</p> -->
+                        </div>
+                        <div class="blog__details__pic">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <img src="{% static 'img/blog/details/bi-1.jpg' %}" alt="">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <img src="{% static 'img/blog/details/bi-2.jpg' %}" alt="">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <img src="{% static 'img/blog/details/bi-3.jpg' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+               
+                        <div class="blog__details__btns">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <a href="#" class="blog__details__btns__item">
+                                        <div class="blog__details__btns__item__pic">
+                                            <img src="{% static 'img/blog/details/prev.jpg' %}" alt="">
+                                        </div>
+                                        <div class="blog__details__btns__item__text">
+                                            <h6><span class="arrow_left"></span> Visitez</h6>
+                                            <h5>Popular Uses Of The Internet</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <a href="#" class="blog__details__btns__item blog__details__btns__item--next">
+                                        <div class="blog__details__btns__item__pic">
+                                            <img src="{% static 'img/blog/details/next.jpg' %}" alt="">
+                                        </div>
+                                        <div class="blog__details__btns__item__text">
+                                            <h6>Visitez <span class="arrow_right"></span></h6>
+                                            <h5>Help Finding Information Online</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog__details__comment__form">
+                            <h4>Passez une commande</h4>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <input type="text" placeholder="Name">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <input type="text" placeholder="Email Address">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <input type="text" placeholder="Phone Number">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <textarea placeholder="Your Comment"></textarea>
+                                        <button type="submit" class="site-btn">Submit Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+</section>
+  
+{% endblock content %}

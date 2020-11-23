@@ -101,7 +101,7 @@
     $(".project__slider").owlCarousel({
         loop: true,
         margin: 0,
-        items: 4,
+        items: 3,
         dots: false,
         nav: true,
         navText: ["<span class='arrow_carrot-left'><span/>", "<span class='arrow_carrot-right'><span/>"],
@@ -119,7 +119,7 @@
                 items: 3
             },
             1200: {
-                items: 4
+                items: 3
             }
         }
     });
