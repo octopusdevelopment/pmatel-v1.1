@@ -67,15 +67,10 @@
                             <li class="{% if request.path == '/about/' %} active {% endif %}"><a
                                     href="{% url 'about' %}">About</a></li>
                             </li>
-                            <!-- <li><a href="./blog.html">Blog</a></li> -->
+                            <li class="{% if request.path == '/produits' %} active {% endif %}"><a
+                                href="{% url 'produits'%}">Produits</a></li>
+                            </li>
                             <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
-                            <!-- <li><a class="" href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./Project-details.html">Project Details</a></li>
-                                <li><a href="./about.html">About</a></li>
-                                <li><a href="./services.html">Services</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul> -->
                         </ul>
                     </nav>
                 </div>

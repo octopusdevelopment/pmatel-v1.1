@@ -4,7 +4,7 @@ from django.core.mail import send_mail, EmailMessage
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
-from .models import ContactForm, Solution, Produit
+from .models import ContactForm, Solution, Product, Category
 # Create your views here.
 
 class Home(TemplateView):
@@ -12,9 +12,8 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all()
         context["solutions"] = Solution.objects.all()
-        # context["cat_prod"] = Categorie_produit.objects.all()
-        # context["cat_sol"] = Categories_Solution.objects.all()
         return context
     
 class AboutView(TemplateView):
@@ -22,9 +21,6 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["slides"] = SliderAPropos.objects.all()
-        # context["cat_prod"] = Categorie_produit.objects.all()
-        # context["cat_sol"] = Categories_Solution.objects.all()
         context["solutions"] = Solution.objects.all()
 
 
@@ -34,7 +30,7 @@ class AboutView(TemplateView):
 
 
 class SolutionDetailView(ListView):
-    model = Produit
+    model = Product
     template_name = "solution-details.html"
     context_object_name = 'solution'
 
@@ -46,12 +42,8 @@ class SolutionDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["produits"] = Produit.objects.all()
-        context["produits"] = Produit.objects.filter(solution=self.solution)
+        context["produits"] = Product.objects.filter(solution=self.solution)
         context["solutions"] = Solution.objects.all()
-
-        # context["cat_sol"] = Categories_Solution.objects.all()
-
         return context
 
 
@@ -61,29 +53,37 @@ class SolutionView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["solutions"] = Solution.objects.all()
-        context["solutions"] = Solution.objects.all()
+        return context
 
-        # context["cat_sol"] = Categories_Solution.objects.all()
+class CatalogView(TemplateView):
+    template_name = 'catalog.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.all()
+        return context    
+
+class ProductDetailsView(ListView):
+    model = Product
+    template_name='product-details.html'
+    context_object_name = 'product'
+    
+    def get_queryset(self):
+        self.product = get_object_or_404(Product, slug=self.kwargs['slug'])
+        return self.product
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["produits"] = self.product
         return context
     
-
-
-# class SolutionDetail(DetailView):
-#     model = Categories_Solution
-#     template_name='solution-detail.html'
-#     context_object_name = 'solution'
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["cat_sol"] = Categories_Solution.objects.all()
-#         return context
 
 class ContactView(TemplateView):
     template_name = "contact.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["cat_sol"] = Categories_Solution.objects.all()
         return context
     
 
@@ -106,45 +106,4 @@ class ContactFormView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["solutions"] = Solution.objects.all()
-
-        # context["cat_sol"] = Categories_Solution.objects.all()
         return context
-
-
-
-    
-# class GammeDetailList(ListView):
-#     model = ProduitDetail
-#     template_name = 'gamme_detail.html'
-#     context_object_name = 'produit'
-
-#     def get_queryset(self):
-#         self.gamme = get_object_or_404(Produit2, slug=self.kwargs['slug'])
-#         return self.gamme
-
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['gamme'] = ProduitDetail.objects.filter(gamme=self.gamme)
-#         context["partenaires"] = Partenaire.objects.all() 
-#         context["cat_sol"] = Categories_Solution.objects.all()
-
-#         return context
-
-
-
-# class BlogView(TemplateView):
-#     template_name = "blog.html"
-
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['posts'] = Post.objects.all()
-#         context["partenaires"] = Partenaire.objects.all() 
-#         context["cat_sol"] = Categories_Solution.objects.all()
-
-#         return context
-
-# class PostDetail(DetailView):
-#     model = Post
-#     template_name='blog-detail.html'

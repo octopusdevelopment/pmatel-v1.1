@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "img" as baseUrl %}
+
+{% block content %}
+
+<div class="breadcrumb-option spad set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Nos Produits</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Content page -->
+<section class="bgwhite p-t-55 p-b-65">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+                <!--  -->
+                <div class="flex-sb-m flex-w p-b-35">
+                    <span class="s-text8 p-t-5 p-b-5">
+                        <h3 >
+                            {{products.count}} Produits
+                        </h3>
+                    </span>
+                </div>
+                <!-- Product -->
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 ">
+                            <div class="card" style="width: 18rem;">
+                                {% if product.photo %}
+                                        <img class="card-img-top" src="{{ product.photo.url }}" alt="{{product.name}}">
+                                    {% else %}
+                                        <img class="card-img-top" src="/static/img/no-photo.jpg" alt="{{product.name}}">
+                                    {% endif %}
+                                <div class="card-body">
+                                  <h5 class="card-title">{{product.name}}</h5>
+                                  <p class="card-text">Prix: {{product.price}} DA</p>
+                                  <a href="{{product.get_absolute_url}}" class="btn btn-primary">Voir</a>
+                                </div>
+                              </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock content%}

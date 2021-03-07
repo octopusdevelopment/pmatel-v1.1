@@ -1,36 +1,44 @@
 from django.contrib import admin
-from .models import Produit, Solution
+from .models import Product, Solution, Category
 
 admin.autodiscover()
 admin.site.enable_nav_sidebar = False
 
 
 
-class ProduitAdmin(admin.ModelAdmin):
-    list_display = ('id','name', 'solution')
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product_id','name', 'category','price', 'status', 'available')
+    prepopulated_fields = {"slug": ("name","product_id")}
+    list_display_links = ('id','product_id',)
+    list_per_page = 40
+    list_filter = ('name', 'category',)
+    list_editable = ['price', 'available', 'name', 'status']
+    search_fields = ('id', 'name',)
+    exlude = ['slug']
+
+
+class SolutionAdmin(admin.ModelAdmin):
+    list_display = ('id','name', 'description')
     prepopulated_fields = {"slug": ("name",)}
-    list_display_links = ('id','name',)
+    list_display_links = ('id',)
     list_per_page = 40
     list_filter = ('name',)
+    list_editable = ['name', 'description']
+    search_fields = ('name',)
+    exclude = ['slug']
+
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    prepopulated_fields = {"slug": ("name",)}
+    list_display_links = ('id',)
+    list_per_page = 40
+    list_filter = ('name',)
+    list_editable = ['name']
     search_fields = ('id', 'name',)
+    exlude = ['slug']
 
-
-class SolutionAdmin(ProduitAdmin):
-    list_display = ('id','name')
-
-
-admin.site.register(Produit, ProduitAdmin)
+admin.site.register(Product, ProductAdmin)
 admin.site.register(Solution, SolutionAdmin)
-
-
-
-
-# admin.site.register(Slide, CategoryAdmin)
-# admin.site.register(Categorie_produit, CategoryAdmin)
-# admin.site.register(Categories_Solution, SolutionCategoryAdmin)
-# admin.site.register(SliderAPropos, SliderAProposAdmin)
-# admin.site.register(Catalogue, CatalogueAdmin)
-# admin.site.register(ContactForm, ContactFormAdmin)
-# admin.site.register(Partenaire, PartenairesAdmin)
-# admin.site.register(ProduitDetail, ProduitDetailAdmin)
-# admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin)
