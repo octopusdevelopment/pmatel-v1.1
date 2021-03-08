@@ -5,15 +5,15 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
 from .models import ContactForm, Solution, Product, Category
-# Create your views here.
+
+from cart.forms import CartAddProductForm
 
 class Home(TemplateView):
     template_name='index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["categories"] = Category.objects.all()
-        context["solutions"] = Solution.objects.all()
+        context['solutions'] = Solution.objects.all()
         return context
     
 class AboutView(TemplateView):
@@ -22,8 +22,6 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["solutions"] = Solution.objects.all()
-
-
         return context
 
 
@@ -60,7 +58,7 @@ class CatalogView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = Product.objects.all()
+        context['products'] = Product.objects.filter(available = True)
         return context    
 
 class ProductDetailsView(ListView):
@@ -75,7 +73,27 @@ class ProductDetailsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        cart_product_form = CartAddProductForm()
+        context["cart_product_form"] = cart_product_form
         context["produits"] = self.product
+        return context
+
+
+class ProductByCategoryView(ListView):
+    model = Category
+    template_name='catalog.html'
+    context_object_name = 'products'
+    
+    def get_queryset(self):
+        
+        self.category = get_object_or_404(Category, slug = self.kwargs['category_slug'])
+        self.products = Product.objects.filter(category = self.category, available= True)
+        return self.products
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["products"] = self.products
         return context
     
 

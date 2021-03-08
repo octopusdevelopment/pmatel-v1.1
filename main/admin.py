@@ -23,9 +23,10 @@ class SolutionAdmin(admin.ModelAdmin):
     list_display_links = ('id',)
     list_per_page = 40
     list_filter = ('name',)
-    list_editable = ['name', 'description']
-    search_fields = ('name',)
-    exclude = ['slug']
+    list_editable = ['description',]
+    search_fields = ('id', 'name')
+    exlude = ['slug']
+ 
 
 
 

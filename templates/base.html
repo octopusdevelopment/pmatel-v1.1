@@ -23,7 +23,13 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slick.css' %}" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    {% block css %}
+
+    {% endblock css %}
 </head>
 
 <body>
@@ -64,13 +70,16 @@
                                     href="{% url 'index' %}">Home</a></li>
                             <li class="{% if request.path == '/solution/' %} active {% endif %}"><a
                                     href="{% url 'solution' %}">Solutions</a></li>
+                            <li class="{% if request.path == '/produits' %} active {% endif %}"><a
+                                        href="{% url 'produits'%}">Shop</a></li>
+                            </li>
+                            
                             <li class="{% if request.path == '/about/' %} active {% endif %}"><a
                                     href="{% url 'about' %}">About</a></li>
                             </li>
-                            <li class="{% if request.path == '/produits' %} active {% endif %}"><a
-                                href="{% url 'produits'%}">Produits</a></li>
-                            </li>
+                            
                             <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+                            <li><a href="{% url 'cart:cart_detail'%}" class="shopping-cart"><i class="fas fa-shopping-cart"></i></a></li>
                         </ul>
                     </nav>
                 </div>

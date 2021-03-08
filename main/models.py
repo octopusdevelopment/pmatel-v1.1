@@ -67,13 +67,13 @@ class Solution(models.Model):
     name         = models.CharField( max_length=50)
     slug        = models.SlugField( max_length=70) 
     photo       = models.ImageField(verbose_name='Photo de la solution', upload_to=solution_directory_path, blank=True)
-    description = RichTextField(verbose_name='Text en plus', blank= True, null=True)
     photo_2     = models.ImageField(verbose_name='Photo 2 de la solution', upload_to=solution_directory_path, blank= True)
-    
+    description = RichTextField(verbose_name='Text en plus', blank= True, null=True)
+
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse("produit", args=[str(self.slug)])
+        return reverse("produit", args=[self.slug])
 
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
@@ -87,7 +87,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse("main:product-by-cat", args = [self.slug])
+        return reverse("product-by-cat", args = [self.slug])
     
 
 class Product(models.Model):
@@ -109,7 +109,6 @@ class Product(models.Model):
     created = models.DateTimeField(verbose_name='Date de Création', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Date de dernière mise à jour', auto_now=True)
 
-#PathAndRename('produits/%Y/%m/%d/')
     def __str__(self):
         return self.name
     
@@ -120,15 +119,6 @@ class Product(models.Model):
             ordering = ('name',)
             verbose_name = 'Produit'
             verbose_name_plural = 'Produits'
-
-
-
-# class Slide(models.Model):
-#     title = models.CharField(verbose_name='titre' ,max_length= 200, blank = True)
-#     image = models.ImageField(upload_to= 'slides/')
-#     class Meta:
-#         verbose_name = "Photo page d'accueil"
-#         verbose_name_plural = "Photos page d'accueil"
 
 
 

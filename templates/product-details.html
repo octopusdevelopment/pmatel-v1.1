@@ -21,7 +21,7 @@
 <section class="bgwhite p-t-55 p-b-65">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 <!--  -->
                 <div class="flex-sb-m flex-w p-b-35">
                     <span class="s-text8 p-t-5 p-b-5">
@@ -32,16 +32,24 @@
                 </div>
                 <!-- Product -->
                 <div class="row">
-                        <div class="col-sm-3 col-md-1 col-lg-4 p-b-50 ">
-                            <div class="card" style="width: 18rem;">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            
+                            <div class="card" style="width: 20rem;">
                                 {% if product.photo %}
-                                        <img class="card-img-top" src="{{ product.photo.url }}" alt="{{product.name}}">
-                                    {% else %}
-                                        <img class="card-img-top" src="/static/img/no-photo.jpg" alt="{{product.name}}">
-                                    {% endif %}
+                                    <img class="card-img-top" src="{{ product.photo.url }}" alt="{{product.name}}">
+                                {%elif product.photo_2%}
+                                    <img class="card-img-top" src="{{ product.photo_2.url }}" alt="{{product.name}}">
+                                {% else %}
+                                    <img class="card-img-top" src="/static/img/no-photo.jpg" alt="{{product.name}}">
+                                {% endif %}
                                 <div class="card-body">
                                   <h5 class="card-title">{{product.name}}</h5>
                                   <p class="card-text">Prix: {{product.price}} DA</p>
+                                  <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                    {{ cart_product_form }}
+                                    {% csrf_token %}
+                                    <input type="submit" value="Ajouter au panier">
+                                  </form>
                                 </div>
                               </div>
                         </div>
