@@ -1,26 +1,12 @@
-{% extends "base.html" %}
+{% extends 'base_small.html' %}
 {% load static %}
 
+{% block title}
+Nos solutions
+{% endblock title}
 
 {% block content %}
 
-<!-- Breadcrumb Section Begin -->
-<div class="breadcrumb-option spad set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Nos Solutions</h2>
-                    <div class="breadcrumb__links">
-                        <a href="{% url 'index' %}">Home</a>
-                        <span>Solutions</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumb Section End -->
 
 <!-- Project Page Section Begin -->
 <section class="project-page spad">

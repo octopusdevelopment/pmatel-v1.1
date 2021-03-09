@@ -1,0 +1,82 @@
+{% extends 'base_small.html' %}
+{% load static %}
+{% static "img" as baseUrl %}
+
+<!-- Title of the page-->
+
+{%block title %} Passer une commande {% endblock title %}
+
+
+{% block content %}
+<!-- Contact Section Begin -->
+
+<section class="contact spad">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="contact__form__text">
+                    <div class="section-title">
+                        <span>MATEL - Professionalisme garranti</span>
+                        <h2>Détails de la Commande</h2>
+                    </div>
+                    <p>Veuillez remplir le formulaire ci-dessous et confirmer votre commande.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="contact__form">
+                    <form method='POST'  id="order-form" data-communes-url="{% url 'orders:load_communes_fetch' %}">
+                        
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input type="text" placeholder="Prénom" name="first_name" id="first_name" required>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input type="text" placeholder="Nom" name="last_name" id="last_name" required> 
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input type="tel" placeholder="Téléphone" name="phone" id="phone" required> 
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input type="email" placeholder="Email" name="email" id="email"> 
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <select name="wilaya" id="wilaya"  required style="cursor: pointer;">
+                                    <option class="option" value='' selected>Wilaya</option>
+                                    {% for wilaya in wilayas %}
+								  	<option class="option" value={{wilaya.id}}>{{wilaya.name}}</option>
+								    {% endfor %}
+                                  </select>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <select name="commune" id="commune"  required style="cursor: pointer;">
+                                    <option class="option" value='' selected>Commune</option>
+                                  </select>
+                            </div> 
+                            <div class="col-lg-12">
+                                <textarea placeholder="Addresse" name="addresse" id="addresse" required></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea placeholder="Note pour cette commande " name="note" id="note"></textarea>
+                                <button type="submit" class="site-btn">Commander</button>
+                            </div>
+                        </div>
+                        {% csrf_token %}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+{% endblock content %}
+
+
+<!-- Javascript -->
+{% block javascript %}
+  <script src="{% static 'js/order.js' %}"></script>
+{% endblock javascript %}

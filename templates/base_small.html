@@ -1,21 +1,19 @@
 {% load static %}
 {% static "img" as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Staging Template">
     <meta name="keywords" content="Staging, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    
-    <title>PMATEL - {%block title %} {% endblock title %}</title>
+    <title>{% block title%} {% endblock title %}</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+   rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
@@ -31,6 +29,7 @@
     {% block css %}
 
     {% endblock css %}
+
 </head>
 
 <body>
@@ -54,31 +53,22 @@
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
+    <header class="header header-normal set-bg" data-setbg="{% static 'img/little-header.jpg' %}">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 row justify-content-lg-end">
+                <div class="col-lg-3">
                     <div class="header__logo">
-                        <div class="col align-self-start">
-                            <a class="logo" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
-                        </div>
+                        <a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="{% if request.path == '/' %} active {% endif %}"><a
-                                    href="{% url 'index' %}">Home</a></li>
-                            <li class="{% if request.path == '/solution/' %} active {% endif %}"><a
-                                    href="{% url 'solution' %}">Solutions</a></li>
-                            <li class="{% if request.path == '/produits' %} active {% endif %}"><a
-                                        href="{% url 'produits'%}">Shop</a></li>
-                            </li>
-                            
+                            <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="{% if request.path == '/solution/' %} active {% endif %}"><a href="{% url 'solution' %}">Solutions</a></li>
+                            <li class="{% if request.path == '/produits' %} active {% endif %}"><a href="{% url 'produits'%}">Shop</a></li>
                             <li class="{% if request.path == '/about/' %} active {% endif %}"><a
-                                    href="{% url 'about' %}">About</a></li>
-                            </li>
-                            
+                                href="{% url 'about' %}">About</a></li>
                             <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
                             <li><a href="{% url 'cart:cart_detail'%}" class="shopping-cart"><i class="fas fa-shopping-cart"></i></a></li>
                         </ul>
@@ -203,6 +193,9 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% block javascript %}
+  
+    {% endblock javascript %}
 </body>
 
 </html>

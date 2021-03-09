@@ -1,0 +1,35 @@
+{% extends 'base_small.html' %}
+{% load static %}
+{% static "img" as baseUrl %}
+
+<!-- Title of the page-->
+
+{%block title %} Commande Confirmée {% endblock title %}
+
+
+{% block content %}
+<!-- Contact Section Begin -->
+
+<section class="contact spad">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="contact__form__text">
+                    <div class="section-title">
+                        <span>Merci pour votre confiance!</span>
+                        <h2>Commande intialisée</h2>
+                    </div>
+                    <p>Nous vous remercions pour votre achat.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+{% endblock content %}

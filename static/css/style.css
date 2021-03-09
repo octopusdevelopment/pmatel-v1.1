@@ -116,7 +116,7 @@ ol {
 }
 
 .section-title span {
-	color: #1556ff;
+	color: #dfa667;
 	font-size: 16px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -232,7 +232,7 @@ ol {
 .site-btn {
 	font-size: 16px;
 	color: #ffffff;
-	background: #1556ff;
+	background: #dfa667;
 	font-weight: 600;
 	border: none;
 	display: inline-block;
@@ -406,7 +406,7 @@ ol {
 	bottom: 0;
 	height: 2px;
 	width: 100%;
-	background: #1556ff;
+	background: #dfa667;
 	content: "";
 	-webkit-transition: all, 0.4s;
 	-o-transition: all, 0.4s;
@@ -430,7 +430,7 @@ ol {
 
 .header__widget h4 {
 	font-size: 22px;
-	color: #1556ff;
+	color: #dfa667;
 }
 
 .offcanvas-menu-wrapper {
@@ -519,7 +519,7 @@ h2.sarl {
 }
 
 .hero__text .hero__social a:hover {
-	color: #1556ff;
+	color: #dfa667;
 }
 
 .hero__text .hero__social a:last-child {
@@ -702,7 +702,7 @@ h2.sarl {
 }
 
 .project__slider__item__hover span {
-	color: #1556ff;
+	color: #dfa667;
 	font-size: 14px;
 	font-weight: 600;
 	letter-spacing: 2px;
@@ -916,7 +916,7 @@ h2.sarl {
 
 .testimonial__client__item span {
 	font-size: 14px;
-	color: #1556ff;
+	color: #dfa667;
 	display: block;
 }
 
@@ -1023,7 +1023,7 @@ h2.sarl {
 
 .team__text .team__title span {
 	font-size: 14px;
-	color: #1556ff;
+	color: #dfa667;
 }
 
 .team__text p {
@@ -1063,7 +1063,7 @@ h2.sarl {
 }
 
 .team__text .team__social a:hover {
-	color: #1556ff;
+	color: #dfa667;
 }
 
 /*---------------------
@@ -1077,7 +1077,7 @@ h2.sarl {
 
 .callto__text span {
 	font-size: 16px;
-	color: #1556ff;
+	color: #dfa667;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -1094,7 +1094,7 @@ h2.sarl {
 }
 
 .callto__text .primary-btn {
-	background: #1556ff;
+	background: #dfa667;
 	color: #ffffff;
 	border-radius: 4px;
 }
@@ -1181,7 +1181,7 @@ h2.sarl {
 	top: 8px;
 	height: 1px;
 	width: 30px;
-	background: #1556ff;
+	background: #dfa667;
 	content: "";
 	-webkit-transition: all, 0.5s;
 	-o-transition: all, 0.5s;
@@ -1289,7 +1289,7 @@ h2.sarl {
 .footer__top__newslatter form input {
 	width: 100%;
 	height: 50px;
-	color: #b7b7b7;
+	color: #3a3a3a;
 	padding-left: 30px;
 	font-size: 14px;
 	border: none;
@@ -1318,7 +1318,7 @@ h2.sarl {
 .footer__top__newslatter form button {
 	font-size: 14px;
 	color: #ffffff;
-	background: #1556ff;
+	background: #dfa667;
 	border: none;
 	height: 100%;
 	padding: 0 20px;
@@ -1364,7 +1364,7 @@ h2.sarl {
 }
 
 .footer__about .footer__social a:hover {
-	color: #1556ff;
+	color: #dfa667;
 }
 
 .footer__about .footer__social a:last-child {
@@ -1425,7 +1425,7 @@ h2.sarl {
 }
 
 .copyright__text p i {
-	color: #1556ff;
+	color: #dfa667;
 }
 
 .copyright__text p a {
@@ -1491,7 +1491,7 @@ h2.sarl {
 
 .breadcrumb__links span {
 	font-size: 15px;
-	color: #1556ff;
+	color: #dfa667;
 	display: inline-block;
 }
 
@@ -1635,7 +1635,7 @@ h2.sarl {
 }
 
 .counter__item__number h2 {
-	color: #1556ff;
+	color: #dfa667;
 	font-size: 60px;
 	line-height: 52px;
 }
@@ -1767,7 +1767,7 @@ h2.sarl {
 }
 
 .blog__item__quote {
-	background: #1556ff;
+	background: #dfa667;
 	padding: 35px 50px;
 	position: relative;
 	margin-bottom: 55px;
@@ -1832,7 +1832,7 @@ h2.sarl {
 }
 
 .blog__pagination a:hover {
-	border: 2px solid #1556ff;
+	border: 2px solid #dfa667;
 }
 
 /*---------------------
@@ -1867,7 +1867,7 @@ h2.sarl {
 .blog__sidebar__search form input {
 	width: 100%;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #363636;
 	border: none;
 	background: transparent;
 	border-bottom: 1px solid #b7b7b7;
@@ -2061,8 +2061,8 @@ h2.sarl {
 }
 
 .blog__sidebar__social a:hover {
-	color: #1556ff;
-	border-color: #1556ff;
+	color: #dfa667;
+	border-color: #dfa667;
 }
 
 .blog__sidebar__newslatter h5 {
@@ -2488,7 +2488,7 @@ h2.sarl {
 }
 
 .contact__widget__item__text h5 {
-	color: #1556ff;
+	color: #dfa667;
 	text-transform: uppercase;
 	margin-bottom: 10px;
 }
@@ -2522,11 +2522,15 @@ h2.sarl {
 	margin-bottom: 0;
 }
 
-.contact__form form input {
+.contact__form form input,
+.contact__form form select,
+.contact__form form option,
+select,
+option{
 	height: 50px;
 	width: 100%;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #292929;
 	padding-left: 20px;
 	border: 1px solid #e1e1e1;
 	margin-bottom: 30px;
@@ -2768,7 +2772,7 @@ h2.sarl {
 	}
 	.offcanvas__widget h4 {
 		font-size: 22px;
-		color: #1556ff;
+		color: #dfa667;
 	}
 	.header__menu {
 		display: none;
@@ -2902,7 +2906,7 @@ h2.sarl {
 	}
 	.offcanvas__widget h4 {
 		font-size: 22px;
-		color: #1556ff;
+		color: #dfa667;
 	}
 	.header__menu {
 		display: none;
