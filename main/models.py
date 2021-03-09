@@ -9,7 +9,6 @@ from django.utils.deconstruct import deconstructible
 
 
 from ckeditor.fields import RichTextField
-# Create your models here.
 
 # CATEGORIES = (
 #     ('PT','Postes Téléphoniques'),
