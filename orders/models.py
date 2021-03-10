@@ -31,11 +31,11 @@ class Order(models.Model):
     email       = models.EmailField(verbose_name="Email", null=True, blank = True)
     wilaya      = models.ForeignKey(Wilaya, on_delete=models.SET_NULL, null=True, blank=True)
     commune     = models.ForeignKey(Commune, on_delete=models.SET_NULL, null=True, blank=True)
-    created     = models.DateTimeField(auto_now_add=True)
-    updated     = models.DateTimeField(auto_now=True)
+    created     = models.DateTimeField(auto_now_add=True, verbose_name="Créée")
+    updated     = models.DateTimeField(auto_now=True, verbose_name= "Modifiée")
     note        = models.TextField(verbose_name= "Note", blank=True, null=True)
-    paid        = models.BooleanField(default=False)
-    confirmed   = models.BooleanField(default=False)
+    paid        = models.BooleanField(default=False, verbose_name="Payée")
+    confirmed   = models.BooleanField(default=False, verbose_name="Confirmée")
     
     class Meta:
         verbose_name = "Commande"

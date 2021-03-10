@@ -1,74 +1,132 @@
 {% extends 'base_small.html' %}
 {% load static %}
 {% static "img" as baseUrl %}
-
-
-{%block title}
-Nos Produits
-{% endblock title}
+{%block title} Nos Produits {% endblock title} 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/catalog.css' %}" type="text/css">
-{% endblock css %}
-
+<!-- <link rel="stylesheet" href="{% static 'css/catalog.css' %}" type="text/css" /> -->
+{% endblock css %} 
 
 {% block content %}
 
-
 <!-- Content page -->
 <section class="bgwhite p-t-55 p-b-65">
-    <div class="content">
-        <aside class="sidebar">
-            <nav class="nav">
-              <ul>
-                <li class="active"><a href="{% url 'produits'%}">Tous les produits</a></li>
-                {% for category in categories %}
-                    <li class="active"><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
-                {% endfor %}
-                
-              </ul>
-            </nav>
-          </aside>
-    
-        <div class="container side-container">
+  <div class="content">
+    <aside class="sidebar">
+      <nav class="nav">
+        <ul>
+          <li class="active" style="display: inline-block;">
+            <a href="{% url 'produits'%}">Tous les produits</a>
+          </li>
+          {% for category in categories %}
+          <li class="active" style="display: inline-block;">
+            <a href="{{category.get_absolute_url}}">{{category.name}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </aside>
+
+    <!--<div class="container side-container">
+      <div class="row">
+        <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+          
+          <div class="flex-sb-m flex-w p-b-35">
+            <span class="s-text8 p-t-5 p-b-5">
+              <h3>{{products.count}} Produits</h3>
+            </span>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<!-- Latest Section Begin -->
+<section class="latest spad">
+  <div class="container" style="width: 100%; max-width:1300px">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="row">
-                <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-                    <!--  -->
-                    <div class="flex-sb-m flex-w p-b-35">
-                        <span class="s-text8 p-t-5 p-b-5">
-                            <h3 >
-                                {{products.count}} Produits
-                            </h3>
-                        </span>
-                    </div>
-                    <!-- Product -->
-                    <div class="row">
-                        {% for product in products %}
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 ">
-                                <div class="card" style="width: 18rem;">
-                                    {% if product.photo %}
-                                            <img class="card-img-top" src="{{ product.photo.url }}" alt="{{product.name}}">
-                                    
-                                        {% else %}
-                                            <img class="card-img-top" src="/static/img/no-photo.jpg" alt="{{product.name}}">
-                                        {% endif %}
-                                    <div class="card-body">
-                                      <h5 class="card-title">{{product.name}}</h5>
-                                      <p class="card-text">Prix: {{product.price}} DA</p>
-                                      <a href="{{product.get_absolute_url}}" class="btn btn-primary">Voir</a>
-                                      <form action="{% url 'orders:order_create_one_product' product.id %}">
-                                        <input type="submit" value="Achetez maintenant">
-                                        {% csrf_token %}
-                                      </form>
-                                    </div>
-                                  </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-    
-    
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="section-title">
+                    <span>Catégorie</span>
+                    <h2>Interphones</h2>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="latest__btn">
+                    <a href="{% url 'produits'%}" class="primary-btn normal-btn">Tous les produits</a>
+                  </div>
                 </div>
             </div>
-        </div>
-    </div>
+              <div class="row">
+                {% for product in products %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="latest__item" style="min-height:480px">
+                    <div class="latest__item__pic">
+                      {% if product.photo %}
+                      <img
+                        class="img-fluid"
+                        src="{{ product.photo.url }}"
+                        alt="{{product.name}}"
+                      />
+                      {% else %}
+                      <img
+                        class="img-fluid" src="/static/img/no-photo.jpg" alt="{{product.name}}"
+                      />
+                      {% endif %}
+                    </div>
+                    <div class="latest__item__text text-center">
+                      <span>{{product.category}}</span>
+                      <h4>{{product.name}}</h4>
+                
+                      <a href="{{product.get_absolute_url}}">En savoir plus</a>
+                      
+                      <div class="col-lg-12 text-center">
+                        <a href="{% url 'orders:order_create_one_product' product.id %}">Acheter maintenant</a>
+                      </div>
+                      <p style="position: relative; top: 95%; transform: translateY(95%);">{{product.price}} DA</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+    </div> <!-- End of products row -->
+        <!-- <div class="col-lg-4">
+            <div class="project__sidebar">
+                <div class="project__sidebar__about">
+                    <h2>Office Building Creative</h2>
+                    <p>Metasurfaces are generally designed by placing scatterers in periodic or pseudo-periodic
+                        grids. We propose and discuss design rules for functional metasurfaces with randomly
+                    placed.</p>
+                    <p>Anisotropic elements that randomly sample. Quisque sit amet nisl ante. Fusce lacinia non
+                    tellus id gravida. Cras neque dolor, volutpat et hendrerit et.</p>
+                </div>
+                <div class="product__details__widget">
+                    <div class="product__details__widget__item">
+                        <span>Clients:</span>
+                        <h4>John Smith</h4>
+                    </div>
+                    <div class="product__details__widget__item">
+                        <span>Location:</span>
+                        <p>101 E 129th St, East Chicago, US</p>
+                    </div>
+                    <div class="product__details__widget__item">
+                        <span>Location:</span>
+                        <p>Decoration, building, Office.</p>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+        <!-- End of categories row -->
+    </div> <!-- End of row -->
+   
+
+    
+   </div>
+
+    <!-- End of Container -->
 </section>
+<!-- Latest Section End -->
 {%endblock content%}

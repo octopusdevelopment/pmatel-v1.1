@@ -164,3 +164,14 @@ MESSAGE_TAGS = {
 
 }
 CART_SESSION_ID = 'cart'
+
+
+# EMAIL CONFIGURATION -- TODO: change later
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'Hildweig@gmail.com'
+EMAIL_HOST_PASSWORD = 'euevnbkbghiutshv'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
