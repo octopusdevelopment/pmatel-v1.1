@@ -36,8 +36,6 @@ class SolutionDetailView(ListView):
         self.solution = get_object_or_404(Solution, slug=self.kwargs['slug'])
         return self.solution
     
-
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["produits"] = Product.objects.filter(solution=self.solution)
@@ -58,7 +56,7 @@ class CatalogView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = Product.objects.filter(available = True)
+        context['products'] = Product.objects.filter(available = True, stock__gte=1)
         return context    
 
 class ProductDetailsView(ListView):
@@ -67,7 +65,7 @@ class ProductDetailsView(ListView):
     context_object_name = 'product'
     
     def get_queryset(self):
-        self.product = get_object_or_404(Product, slug=self.kwargs['slug'])
+        self.product = get_object_or_404(Product, slug=self.kwargs['slug'], stock__gte=1)
         return self.product
     
 
@@ -87,7 +85,7 @@ class ProductByCategoryView(ListView):
     def get_queryset(self):
         
         self.category = get_object_or_404(Category, slug = self.kwargs['category_slug'])
-        self.products = Product.objects.filter(category = self.category, available= True)
+        self.products = Product.objects.filter(category = self.category, available= True, stock__gte=1)
         return self.products
     
 

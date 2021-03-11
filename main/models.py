@@ -6,7 +6,7 @@ from django.db.models import F
 from django.conf import settings
 import os
 from django.utils.deconstruct import deconstructible
-
+from django.core.validators import MinValueValidator
 
 from ckeditor.fields import RichTextField
 
@@ -53,7 +53,6 @@ def product_directory_path(instance, filename):
     year = date_fields[0]
     month = date_fields[1]
     day = date_fields[2]
-    
     # file will be uploaded to MEDIA_ROOT/produits/YEAR/MONTH/DAY/produit_<produit_id>_<filename>
     product_sub_path = 'produits/{0}/{1}/{2}/product_{3}_{4}'.format(year, month, day,instance.product_id, filename)
     product_full_path = os.path.join(settings.MEDIA_ROOT, product_sub_path)
@@ -102,11 +101,18 @@ class Product(models.Model):
     photo       = models.ImageField(verbose_name='Photo du Produit', upload_to= product_directory_path, blank=True)
     photo_2     = models.ImageField(verbose_name='Photo du Produit 2', upload_to= product_directory_path, blank=True)
     file_1   = models.FileField(verbose_name='Fichier 1', upload_to='fichiers/', blank= True)
-    price = models.DecimalField(verbose_name='Prix', max_digits=10, decimal_places=2)
+    price = models.DecimalField(verbose_name='Prix', max_digits=10, decimal_places=2, validators = [MinValueValidator(0)], blank=False, null=False)
     available = models.BooleanField(verbose_name='Disponibilité', default=True)
     status = models.CharField(choices= PRODUCT_STATUS, max_length=50, default='S' , blank=False, null = False, verbose_name="Status")
     created = models.DateTimeField(verbose_name='Date de Création', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='Date de dernière mise à jour', auto_now=True)
+    stock = models.PositiveIntegerField(verbose_name='Stock', validators= [MinValueValidator(0)], default=0, blank=False, null=False ) 
+    
+    
+    class Meta:
+            ordering = ('name',)
+            verbose_name = 'Produit'
+            verbose_name_plural = 'Produits'
 
     def __str__(self):
         return self.name
@@ -114,11 +120,6 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("details-produit", args=[self.slug])
     
-        class Meta:
-            ordering = ('name',)
-            verbose_name = 'Produit'
-            verbose_name_plural = 'Produits'
-
 
 
 DEPARTEMENT_CHOICES=[

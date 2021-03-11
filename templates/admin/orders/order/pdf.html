@@ -80,7 +80,12 @@
             Email: {{ order.email }}<br>
             Adresse: {{ order.addresse }}<br>
             Wilaya: {{ order.wilaya.name }}<br>
-            Commune: {{ order.commune.name }}
+            Commune: {{ order.commune.name }} <br>
+            {% if order.coupon %}
+            Coupon: {{order.coupon.code}} <br>
+            Réduction {{order.discount_amount}} DA
+            {% endif %}
+
         </p>
         <h3>Articles acheté :</h3>
         <table>
@@ -102,8 +107,13 @@
                     </tr>
                 {% endfor %}
                 <tr class="total">
+                    {% if order.coupon %}
+                    <td colspan="3">Total après réduction</td>
+                    <td class="num">{{ order.get_total_cost}} DA</td>
+                    {% else %}
                     <td colspan="3">Total</td>
-                    <td class="num">{{ order.get_total_cost }} DA</td>
+                    <td class="num">{{ order.get_total_cost}} DA</td>
+                    {% endif %}
                 </tr>
             </tbody>
         </table>

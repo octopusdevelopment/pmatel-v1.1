@@ -38,13 +38,6 @@ class WilayaAdmin(admin.ModelAdmin):
     list_editable = ('active',)
     search_fields = ('name',)
 
-# class WilayaItemInline(admin.TabularInline):
-#     model = Wilaya
-#     raw_id_fields = ['wilaya']
-
-# class CommuneItemInline(admin.TabularInline):
-#     model = Commune
-#     raw_id_fields = ['commune']
 
 class CommuneAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'wilaya')

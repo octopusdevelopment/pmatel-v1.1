@@ -61,13 +61,21 @@
                                     <option class="option" value='' selected>Commune</option>
                                   </select>
                             </div> 
-                            <div class="col-lg-12">
+                            <div class="col-log-12 col-md-12 col-sm-12">
                                 <textarea placeholder="Addresse" name="addresse" id="addresse" required></textarea>
                             </div>
-                            <div class="col-lg-12">
+                            {% if coupon_form %}
+                            <div class="col-log-12 col-md-12 col-sm-12">
+                                <input type="text" name="code" id="code" placeholder="Placer votre coupon ici si vous en disposez">
+                            </div>
+                            {% endif %}
+                            <div class="col-log-12 col-md-12 col-sm-12">
                                 <textarea placeholder="Note pour cette commande " name="note" id="note"></textarea>
+                            </div> 
+                            <div class="col-log-12 col-md-12 col-sm-12">
                                 <button type="submit" class="site-btn">Commander</button>
                             </div>
+                            
                         </div>
                         {% csrf_token %}
 
