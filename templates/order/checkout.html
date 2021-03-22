@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Passer à l'achat
+{% endblock title %}
+{% static "img" as baseUrl %}
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+
+    <section class="page-title" style="background-image:url({% static 'images/background/home_background_2.jpg' %})">
+    	<div class="auto-container">
+        	<h2>Validez votre achat</h2>
+            <ul class="page-breadcrumb">
+            	<li><a href="{% url 'index' %}">Accueil</a></li>
+                <li>Caisse</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+	<!--Checkout Page-->
+    <div class="checkout-page">
+        <div class="auto-container">
+            	
+            <!--Default Links-->
+             <ul class="default-links">
+                <li>Veuillez remplir le formulaire ci-dessous et confirmer votre commande.</li>
+            </ul>
+            <!--Billing Details-->
+            <div class="billing-details">
+                <div class="shop-form">
+                    <form method="post" id="order-form" data-communes-url="{% url 'orders:load_communes_fetch' %}">
+                        <div class="row clearfix">
+                            <div class="col-lg-7 col-md-12 col-sm-12">
+								
+                                <div class="title-box"><h2>Détails Facturation</h2></div>
+                        		<div class="billing-inner">
+                                    <div class="row clearfix">
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <div class="field-label">Prénom <sup>*</sup></div>
+                                            <input type="text" placeholder="Prénom" name="first_name" id="first_name" required>
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <div class="field-label">Nom <sup>*</sup></div>
+                                            <input type="text" placeholder="Nom" name="last_name" id="last_name" required>
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <div class="field-label">Adresse <sup>*</sup></div>
+                                            <input type="text" placeholder="Adresse" name="addresse" id="addresse" required>
+                                        </div>
+                                        {% if coupon_form %}
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <div class="field-label">Coupon</div>
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-8">
+                                                    <input type="text" name="code" id="code" placeholder="Placer votre coupon ici si vous en disposez">
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <button type="button" id="apply-coupon" data-product-id="{{product_id}}" class="edit-btn">Appliquer</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        {% endif %}
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <div class="field-label">Wilaya <sup>*</sup> </div>
+                                            <select name="wilaya" id="wilaya"  required>
+                                                <option class="option" value='' selected>Wilaya</option>
+                                                {% for wilaya in wilayas %}
+                                                <option class="option" value={{wilaya.id}}>{{wilaya.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <div class="field-label">Commune <sup>*</sup></div>
+                                            <select name="commune" id="commune"  required>
+                                                <option class="option" value='' selected>Commune</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <div class="field-label">Adresse email <sup>*</sup></div>
+                                            <input type="email" placeholder="Email" name="email" id="email" required>
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <div class="field-label">Télephone <sup>*</sup></div>
+                                            <input type="tel" placeholder="Téléphone" name="phone" id="phone" required>
+                                        </div>
+
+                                        {% if show_quantity_field %}
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <div class="field-label">Quantité du produit</div>
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-8">
+                                                    <input type="number" placeholder="Quantité à commander" name="quantity" id="quantity" required min="1" max="20" value="1">
+                                                    
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" id="edit-product-quantity" data-product-id="{{product_id}}" class=" edit-btn">Modifier</button>
+                                                </div>
+                                            </div>
+ 
+                                        </div>
+                                        {% endif %}
+                                        <div class="form-group title-box col-md-12 col-xs-12"><h2>Livrer à une autre adresse</h2></div>
+                                        
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <div class="field-label">Notes Commande</div>
+                                            <textarea placeholder="Note à propos de votre commande. exemple: note spéciale de livraison" name="note" id="note"></textarea>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xxl-5 col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                                <div class="title-box"><h2>Votre commande</h2></div>
+                                <div class="shop-order-box">
+                                	<ul class="order-list">
+                                    	<li>Produits<span>TOTAL</span></li>
+                                        {% if not show_quantity_field %}
+                                        {% for item in cart %}
+                                        <li>{{ item.product.name }} x {{ item.quantity }}<span>{{ item.total_price|floatformat:2}} DA</span></li>
+                                        {% endfor %}
+                                        {% else %}
+                                        <li id="product_info">{{ product.name }} x 1 <span>{{ product.price|floatformat:2}} DA</span></li>
+                                        {% endif %}
+                                    </ul>
+                                    <ul class="order-list pt-4" id="order_info">    
+                                        {% if cart.coupon %}
+                                        <li>Coupon: <div><strong id="coupon_code">{{cart.coupon.code}}<strong></div></li>
+                                        <li>Réduction<span id="coupon_reduction">{% if cart.coupon.discount_percentage %} {{ cart.coupon.discount_percentage }}% {% else %} - {{cart.coupon.discount_amount}} DA {% endif %}</span></li>
+                                        <li>SOUS TOTAL <span id="sub_total">{{cart.get_total_price|floatformat:2}} DA </span></li>
+                                        {% endif %}
+                                        <li>Livraison<span id="delivery_price">x</span></li>
+                                        {% if coupon_form %}
+                                        <li class="total">TOTAL<span class="dark" id="order_total" data-order-total="{{ product.price|floatformat:2}}">{{product.price|floatformat:2 }} DA</span></li>
+                                        {% else %}
+                                        <li class="total">TOTAL<span class="dark" id="order_total" data-order-total="{{ cart.get_total_price_after_discount|floatformat:2}}">{{cart.get_total_price_after_discount|floatformat:2 }} DA</span></li>
+                                        {% endif %}
+                                    </ul>
+                                    
+                                    <!--Place Order-->
+                                    <div class="place-order pt-3">
+                                        <button type="submit" class="theme-btn order-btn">Commander</button>
+                                    </div>
+                                    {% csrf_token %}  
+                                    <!--End Place Order-->
+                                    
+                                </div>
+                                
+                                
+                            </div>
+                        </div>    
+                        {% csrf_token %}                         
+                    </form>
+                    
+                </div>
+                
+            </div><!--End Billing Details-->
+    	</div>
+    </div>
+{% endblock content %}
+
+<!-- Javascript -->
+{% block javascript %}
+  <script src="{% static 'js/order.js' %}"></script>
+{% endblock javascript %}

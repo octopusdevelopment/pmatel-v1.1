@@ -10,6 +10,7 @@ urlpatterns = [
     path('panier/', include('cart.urls', namespace='cart')),
     path('commande/', include('orders.urls', namespace='orders')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('coupon/', include('coupons.urls', namespace='coupons'))
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

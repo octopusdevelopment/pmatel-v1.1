@@ -48,15 +48,38 @@
             </tr>
 
             <tr>
+                <th>Livraison</th>
+                <td>
+                    {{ order.wilaya.price }}
+                </td>
+            </tr>
+
+            <tr>
                 <th>Commune</th>
                 <td>
                     {{ order.commune.name }}
                 </td>
             </tr>
+            {% if order.coupon %}
+                <tr>
+                    <th>Coupon:</th>
+                    <td>{{order.coupon.code}}</td>
+                </tr>
+                <tr>
+                    <th>Réduction:</th>
+                    <td>{{order.discount_amount}} DA</td>
+                </tr>
+            {% endif %}
             <tr>
-                <th>Total amount</th>
-                <td>{{ order.get_total_cost }} DA</td>
+                <th>Prix total</th>
+                <td>{{ order.get_total_cost_without_discount}} DA</td>
             </tr>
+            {% if order.coupon %}
+            <tr>
+                <th>Prix total après réduction</th>
+                <td>{{order.get_total_cost}}</td>
+            </tr>
+            {% endif %}
             <tr>
                 <th>Status</th>
                 <td>{% if order.paid %}Payée{% else %}Pending payment{% endif %}</
@@ -85,7 +108,7 @@
         {% endfor %}
             <tr class="total">
                 <td colspan="3">Total</td>
-                <td class="num">${{ order.get_total_cost }}</td>
+                <td class="num">${{ order.get_total_cost_without_discount }}</td>
             </tr>
         </tbody>
     </table>

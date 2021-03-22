@@ -1,0 +1,490 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- stella-orre/index-3.html  30 Nov 2019 03:48:03 GMT -->
+<head>
+<meta charset="utf-8">
+<title>PMATEL - {{product.name}} </title>
+
+<!-- Stylesheets -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+	<!-- Header Style Three -->
+    <header class="main-header header-style-three">
+        <!--Header Top-->
+        <div class="header-top">
+            <div class="auto-container clearfix">
+                <div class="top-left clearfix">
+                    <div class="text"><span class="icon flaticon-call-answer"></span> Besoin d'aide ? Appelez maintenant <a href="tel:+213550936128" class="number">+213 550 93 61 28</a></div>
+					
+                </div>
+                <!-- <div class="top-right clearfix">
+					<ul class="info-list">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="blog.html">Inspiration</a></li>
+						<li class="quote"><a href="contact.html">Get Free Quote</a></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <!-- End Header Top -->
+
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <!--Info-->
+                    <div class="logo-outer">
+                        <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="PMATEL logo" title="PMATEL - Site de ventes de produits électriques" width="80" height="80"></a></div>
+                    </div>
+
+                    <!--Nav Box-->
+                    <div class="nav-outer clearfix">
+                        <!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu-1"></span></div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="navbar-header">
+                                <!-- Togg le Button -->      
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon flaticon-menu-1"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="current"><a href="{% url 'index' %}">Accueil</a>
+                                        <!-- <ul>
+                                            <li><a href="index-2.html">Home page 01</a></li>
+                                            <li><a href="index-3.html">Home page 02</a></li>
+                                            <li><a href="index-4.html">Home page 03</a></li>
+											<li><a href="index-5.html">Home page 04</a></li>
+                                            <li><a href="index-6.html">Home page 05</a></li>
+                                            <li class="dropdown"><a href="index-2.html">Header Styles</a>
+                                                <ul>
+                                                    <li><a href="index-2.html">Header Style One</a></li>
+                                                    <li><a href="index-3.html">Header Style Two</a></li>
+                                                    <li><a href="index-4.html">Header Style Three</a></li>
+													<li><a href="index-5.html">Header Style Four</a></li>
+                                                    <li><a href="index-6.html">Header Style Five</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul> -->
+                                    </li>
+									<li><a href="{% url 'about' %}">A Propos</a>
+                                        <!-- <ul>
+                                            <li><a href="about.html">Our Introduction</a></li>
+											<li><a href="team.html">Our Team</a></li>
+											<li><a href="testimonials.html">Testimonials</a></li>
+                                        </ul> -->
+                                    </li>
+                        
+								
+									<li class="dropdown"><a href="{% url 'produits'%}">Nos produits</a>
+                                        <ul>
+                                            <li><a href="{% url 'product-promotion' %}">Produits en promotion</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+									<li><a href="{% url 'cart:cart_detail'%}">
+                                        <span class="icon flaticon-shopping-cart"></span>
+                                        <span class='badge badge-warning' id='label-cart-count'>{{cart|length}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+						
+						<!-- Outer Box -->
+
+						<div class="outer-box clearfix">
+                            <div class="search-box-btn"><span class="icon flaticon-magnifying-glass-1"></span></div>
+							
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header Upper-->
+
+    	<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="PMATEL logo" title="PMATEL - site de ventes en ligne de produits électriques"></a></div>
+                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+				<!--Social Links-->
+				<div class="social-links">
+					<ul class="clearfix">
+						<li><a href="https://www.facebook.com/camebptalgerie"><span class="fab fa-facebook-square"></span></a></li>
+						<li><a href="#"><span class="fab fa-instagram"></span></a></li>
+					</ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+    </header>
+    <!-- End Main Header -->
+
+    <section class="page-title" style="background-image:url({% static 'images/background/5.jpg' %})">
+    	<div class="auto-container">
+        	<h2>Détails du produit</h2>
+            <ul class="page-breadcrumb">
+            	<li><a href="{% url 'index' %}">Accueil</a></li>
+                <li >Détails du produit</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+	<!--Shop Single Section-->
+    <section class="shop-single-section">
+    	<div class="auto-container">
+        	
+            <div class="shop-single">
+                <div class="product-details">
+                    
+                    <!--Basic Details-->
+                    <div class="basic-details">
+                        <div class="row clearfix">
+                            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                                {% if product.photo %}
+                                <figure class="image-box"><a href="{{product.photo.url}}" class="lightbox-image" title="{{product.name}}"><img src="{{ product.photo.url }}" alt="{{product.name}}" title="{{product.name}}"></a></figure>
+                                {% elif product.photo_2 %}
+                                <figure class="image-box"><a href="{{product.photo_2.url}}" class="lightbox-image" title="{{product.name}}"><img src="{{ product.photo_2.url }}" alt="{{product.name}}" title="{{product.name}}"></a></figure>
+                                {% else %}
+                                <figure class="image-box"><a href="{{product.}}" class="lightbox-image" title="{{product.name}}"><img src="{% static 'images/no_image/no_image_528x606.png' %}" alt="{{product.name}}" title="{{product.name}}"></a></figure>
+                                {% endif %}
+                            </div>
+                            <div class="info-column col-lg-6 col-md-12 col-sm-12">
+                            	<div class="inner-column">
+                                    <h4 style="text-transform:capitalize">{{product.name}}</h4>
+                                    <div class="text">{{product.get_description}}</div>
+                                    <div class="price">Prix : <span>{{product.price}} DA</span></div>
+                                    
+                                    <div class="other-options clearfix">
+                                        <form action="{% url 'cart:cart_add_one_product_with_quantity' product.slug product.id %}" method="POST" id="product_details_form">
+                                        <div class="item-quantity"><label class="field-label">Quantité :</label><input class="quantity-spinner" type="number" value="1" min="1" name="quantity"></div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button type="submit" class="theme-btn cart-btn">Ajouter au panier</button>
+                                            </div>
+                                            
+                                            <div class="col">
+                                                <a href="{% url 'orders:order_create_one_product' product.id %}" class="theme-btn cart-btn">Acheter maintenant</a>
+                                            </div>
+                                            {% csrf_token %} 
+                                        </div>
+                                        </form>
+                                            
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Basic Details-->
+                    
+                    <!--Product Info Tabs-->
+                    <div class="product-info-tabs">
+                        <!--Product Tabs-->
+                        <div class="prod-tabs tabs-box">
+                        
+                            <!--Tab Btns-->
+                            <ul class="tab-btns tab-buttons clearfix">
+                                <li data-tab="#prod-details" class="tab-btn active-btn">Description</li>
+                                {% if product.sup_info %}
+                                <li data-tab="#prod-spec" class="tab-btn">Informations supplémentaires</li>
+                                {% endif %}
+                                {% if product.file_1 %}
+                                <li data-tab="#prod-reviews" class="tab-btn">Fiche technique</li>
+                                {% endif %}
+                            </ul>
+                            
+                            <!--Tabs Container-->
+                            <div class="tabs-content">
+                                
+                                <!--Tab / Active Tab-->
+                                <div class="tab active-tab" id="prod-details">
+                                    <div class="content">
+                                        {% if product.sub_title %}
+                                        <h3 style="text-transform:capitalize">{{product.sub_title}}</h3>
+                                        {% endif %}
+                                        <h4 style="text-transform:capitalize">Catégorie: {{product.category}}</h4>
+                                        <p>{{product.get_description}}</p>
+                                    </div>
+                                </div>
+                                
+                                <!--Tab-->
+                                {% if product.sup_info %}
+                                <div class="tab" id="prod-spec">
+                                    <div class="content">
+                                        <p>{{product.get_sup_info}}</p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <!--Tab-->
+                                {% if product.file_1 %}
+                                
+                                <div class="tab" id="prod-reviews">
+                                    <h2 class="title">Télécharger la fiche technique</h2>
+                                    <!--Reviews Container-->
+                                    <div class="comments-area">
+                                        <!--Comment Box-->
+                                        <div class="comment-box">
+                                            <div class="comment">
+                                                
+                                                <div class="comment-inner">
+                                                    <a class="file-btn" href="{{product.file_1.url}}" download="{{product.file_1.url}}">Télécharger</a>
+                                                    <a class="file-btn" href="{{product.file_1.url}}">Consulter</a>
+                                                </div>
+                                            
+                                                
+                                            </div>
+                                        </div>     
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--End Product Info Tabs-->
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!--End Shop Single Section-->
+	
+	<!-- Related Products -->
+    {% if similar_products %}
+	<section class="related-products">
+        <div class="auto-container">
+            <!--Sec Title-->
+            <div class="title-box">
+            	<h2>Produits similaires</h2>
+            </div>
+            
+            <div class="row clearfix">
+				{% for product in similar_products %}
+				<!--Shop Item-->
+                <!--Shop Item-->
+                <div class="shop-item col-12 col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
+                    <div class="inner-box ">
+                        <div class="image ">
+                            <a href="product-detail.html">
+                                {% if product.photo %}
+                                    <img src="{{ product.photo.url }}" alt="{{product.name}}" width="270" height="310">
+                                {% elif product.photo_2 %}
+                                <img src="{{ product.photo_2.url }}" alt="{{product.name}}" width="270" height="310">
+                                {% else %}
+                                    <img src="{% static 'images/no_image/no_image_528x606.png' %}" alt="{{product.name}}"/>
+                                {% endif %}
+                            </a>
+                            <div class="overlay-box">
+                                <ul class="option-box">
+                                    <li><a href="{% url 'cart:cart_add_one_product' product.id %}"><span class="icon flaticon-shopping-cart" title="Ajouter au panier"></span></a></li>
+                                    <li><a href="{% url 'product-details' product.slug %}"><span class="fa fa-search"></span></a></li>
+                                </ul>
+                            </div>
+                            {% if product.status == 'N'%}
+                            <div class="tag-banner">Nouveau</div>
+                            {% elif product.status == 'P'%}
+                            <div class="tag-banner">Promotion</div>
+                            {% endif %}
+                        </div>
+                        <div class="lower-content">
+                            <h3><a href="product-detail.html">{{product.name}}</a></h3>
+                            <div class="price">{{product.price}} DA</div>
+                            <a href="{% url 'orders:order_create_one_product' product.id %}" class="purchase-btn">Acheter maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                
+
+               {% endfor %}
+				
+			</div>
+			
+		</div>
+	</section>
+    {% endif %}
+	<!--Main Footer-->
+    <footer class="main-footer">
+		<div class="auto-container">
+        	<!--Widgets Section-->
+            <div class="widgets-section">
+            	<div class="row clearfix">
+                	
+                    <!--big column-->
+                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+                        
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                                <div class="footer-widget logo-widget">
+									<div class="logo">
+                                    	<a href="{% url 'index' %}"><img src="{%static 'images/logo.png' %}" width= "80" height="80" alt="PMATEL - Vente en ligne de produits électriques" /></a>
+                                    </div>
+                                    <div class="text">PMATEL - Le magasin de réference pour la vente des produits électriques!</div>
+                                    <ul class="social-icons">
+                                        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                        <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                        <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
+                                    </ ul>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                                <div class="footer-widget links-widget">
+                                	<h2>Liens Rapides</h2>
+									<div class="widget-content">
+										<ul class="list">
+											<li><a href="{% url 'index' %}">Accueil</a></li>
+                                        	<li><a href="{% url 'about' %}">A propos de PMATEL</a></li>
+                                            <li><a href="{% url 'produits' %}">Catalog</a></li>
+                                            <li><a href="#">FAQ (Bientôt)</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+					
+					<!--big column-->
+                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+                        
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                                <div class="footer-widget contact-widget">
+									<h2>Contact Info</h2>
+									<div class="widget-content">
+										<a href="tel:+213550936128" class="contact-number">+213 550 93 61 28</a>
+										<ul>
+											<li>Coopérative les vergers 2 – N°10 / Birkhadem - Alger – ALGERIE</li>
+											<li>Email :<a href="mailto:camebptalgerie@pmatel.dz">camebptalgerie@pmatel.dz</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                                <div class="footer-widget newsletter-widget">
+                                	<h2>Newsletter</h2>
+									<div class="text">Obtenez des offres spéciales et des réductions</div>
+									<!-- Newsletter Form -->
+									<div class="newsletter-form">
+										<form method="post" action="#">
+											<div class="form-group">
+												<input type="email" name="email" value="" placeholder="Entrez votre adresse email" required>
+												<button type="submit" class="theme-btn btn-style-one"><span class="txt">BIENTÔT</span></button>
+                                                {% csrf_token %} 
+                                            </div>
+										</form>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!--Footer Bottom-->
+            <div class="footer-bottom clearfix">
+                <div class="pull-left">
+                    <div class="copyright"><a href="https://octopus-consulting.com/">Octopus - 2021</a></div>
+                </div>
+                <div class="pull-right">
+                    <a href="{% url 'index' %}">Pmatel</a>
+                </div>
+            </div>
+			
+		</div>
+	</footer>
+	
+</div>  
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+<!--Search Popup-->
+<div id="search-popup" class="search-popup">
+	<div class="close-search theme-btn"><span class="flaticon-cancel"></span></div>
+	<div class="popup-inner">
+		<div class="overlay-layer"></div>
+    	<div class="search-form">
+        	<form method="get" action="{% url 'product-search' %}">
+            	<div class="form-group">
+                	<fieldset>
+                        <input type="search" class="form-control" name="query" value="" id="query" placeholder="Recherchez un produit" required >
+                        <input type="submit" value="Rechercher" class="theme-btn">
+                    </fieldset>
+                </div>
+            </form>
+            
+            <br>
+			<h3>Ou choisissez une catégorie</h3>
+			<ul class="recent-searches">
+				{% for category in categories %}
+					<li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+				{% endfor %}
+			</ul>
+        </div>
+        
+    </div>
+</div>
+
+<!--Scroll to top-->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/jquery.bootstrap-touchspin.js' %}"></script>
+<script src="{% static 'js/scrollbar.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+{% block javascript %}
+
+{% endblock javascript %}
+</body>
+
+<!-- stella-orre/index-3.html  30 Nov 2019 03:48:05 GMT -->
+</html>
+
+

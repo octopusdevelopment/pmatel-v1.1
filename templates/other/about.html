@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+A propos
+{% endblock title %}
+{% static "img" as baseUrl %}
+
+{% block css %}
+{% endblock css %}
+
+<!-- Content -->
+{% block content %}
+
+	<!--Page Title-->
+    <section class="page-title" style="background-image:url({% static 'images/background/about_bg_2.jpg' %})">
+    	<div class="auto-container">
+        	<h2>A propos</h2>
+			<ul class="page-breadcrumb">
+            	<li><a href="{% url 'index' %}">Accueil</a></li>
+                <li >A propos</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+	
+	<!-- Story Section -->
+	<section class="story-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+				
+				<!-- Content Column -->
+				<div class="content-column col-lg-8 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<h2>Des avantages qui deviennent des solutions</h2>
+						<div class="bold-text">Une assistance technique et un service après vente assurés à long terme.</div>
+						<div class="text">
+							<p>PMATEL est le premier distributeur des produits CAME BPT en Algérie. Nous fournissons une large gamme de solutions intégrées de haute technologie pour les maisons privées, les lieux publics et les espaces urbains.</p>
+							<p>Chez PMATEL, nous croyons à l’excellence pour nos produits comme pour notre service client. Mais le plus important, nous pensons que l'achat en ligne doit être un plaisir pour tous et non un luxe. C’est pourquoi nous faisons tout pour vous fournir une excellente qualité à prix abordable et ce partout en Algérie.</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Image Column -->
+				<div class="image-column col-lg-4 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<div class="image">
+							<img src="{% static 'images/background/about_pmatel_1.jpg' %}" title="PMATEL premier distributeur en algérie" alt="CAME produit"/>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- End Story Section -->
+	
+	<!-- Interior Section -->
+	<section class="interior-section style-three">
+		<div class="auto-container">
+			<div class="inner-container">
+				<div class="row clearfix">
+					
+					<!-- Image Column -->
+					<div class="image-column col-lg-4 col-md-12 col-sm-12">
+						<div class="inner-column">
+							<div class="image">
+								<img src="{% static 'images/background/about_pmatel_2.png' %}" title="PMATEL premier distributeur en algérie" alt="CAME a propos"/>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Content Column -->
+					<div class="content-column col-lg-8 col-md-12 col-sm-12">
+						<div class="inner-column">
+							<h2>Pourquoi travailler avec nous ?</h2>
+							<div class="text">
+								Notre expérience en la matière nous permet de fournir le meilleur rapport qualité/prix pour vous. Et nous mettons un point d’honneur à vous proposer un excellent service client et assistance.
+							</div>
+							<div class="row clearfix">
+							
+								<!-- Interior Block -->
+								<div class="interior-block col-lg-4 col-md-4 col-sm-12">
+									<div class="block-inner">
+										<div class="icon-box">
+											<span class="icon flaticon-award-1"></span>
+										</div>
+										<h3>Qualité Supérieure</h3>
+									</div>
+								</div>
+								
+								<!-- Interior Block -->
+								<div class="interior-block col-lg-4 col-md-4 col-sm-12">
+									<div class="block-inner">
+										<div class="icon-box">
+											<span class="icon flaticon-answer"></span>
+										</div>
+										<h3>Service Professionnel</h3>
+									</div>
+								</div>
+								
+								<!-- Interior Block -->
+								<div class="interior-block col-lg-4 col-md-4 col-sm-12">
+									<div class="block-inner">
+										<div class="icon-box">
+											<span class="icon flaticon-hand"></span>
+										</div>
+										<h3>Satisfaction Garrantie</h3>
+									</div>
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Interior Section -->
+	
+	<!-- Counter Section -->
+	<section class="counter-section style-two">
+		<div class="auto-container">
+		
+			<!-- Fact Counter -->
+			<div class="fact-counter">
+				<div class="row clearfix">
+
+					<!--Column-->
+					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+						<div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+							<div class="content">
+								<div class="count-outer count-box">
+									<span class="count-text" data-speed="2500" data-stop="8">0</span> Year
+								</div>
+								<h4 class="counter-title">Material Warranty</h4>
+							</div>
+						</div>
+					</div>
+
+					<!--Column-->
+					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+						<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+							<div class="content">
+								<div class="count-outer count-box alternate">
+									<span class="count-text" data-speed="3000" data-stop="2500">0</span>+
+								</div>
+								<h4 class="counter-title">Homes Completed</h4>
+							</div>
+						</div>
+					</div>
+
+					<!--Column-->
+					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+						<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
+							<div class="content">
+								<div class="count-outer count-box">
+									<span class="count-text" data-speed="3000" data-stop="200">0</span>+
+								</div>
+								<h4 class="counter-title">Interior Designer</h4>
+							</div>
+						</div>
+					</div>
+					
+					<!--Column-->
+					<div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+						<div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
+							<div class="content">
+								<div class="count-outer count-box">
+									<span class="count-text" data-speed="2500" data-stop="45">0</span> Days
+								</div>
+								<h4 class="counter-title">Project Delivery</h4>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	<!-- End Counter Section -->
+	
+
+	
+	<!-- Mission Section -->
+    <section class="mission-section style-two">
+		<div class="auto-container">
+			<div class="row clearfix">
+				
+				<!-- Image Column -->
+				<div class="image-column col-xl-3 col-lg-4 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<div class="image">
+							<img src="{% static 'images/background/pmatel_about_4.jpg' %}" alt="PMATEL CAME BPT" />
+						</div>
+					</div>
+				</div>
+				
+				<!-- Content Column -->
+				<div class="content-column col-xl-9 col-lg-8 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<h2>La mission de notre entreprise</h2>
+						<div class="bold-text">Nous croyons que la sécurité doit être accessible<br/>pour tout le monde</div>
+						<div class="text">Nous veillons à accroître l'efficacité et améliorer la qualité de nos services de manière continue.</div>
+						<h3>Nos services peuvent vous aider à...</h3>
+						<div class="row clearfix">
+							<div class="column col-lg-6 col-md-6 col-sm-12">
+								<ul class="list-style-two">
+									<li>- Sécuriser vos biens</li>
+									<li>- Installer votre système</li>
+									<li>- Choisir le bon automatisme pour vos besoins</li>
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- End Mission Section -->
+	
+	<!-- Call To Action Section -->
+	<section class="call-to-action-section" style="background-image: url({% static 'images/background/about_bg_1.jpg' %})">
+		<div class="auto-container">
+			<h2>Pensez sécurité, pensez PMATEL</h2>
+			<div class="text">Des solutions CAME pour plus de sécurité.</div>
+			<a href="{% url 'contact'%}" class="theme-btn btn-style-two"><span class="txt">Contactez-Nous</span></a>
+		</div>
+	</section>
+	<!-- End Call To Action Section -->
+	
+{% endblock content %}
+
+<!-- End content -->

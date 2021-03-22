@@ -1,208 +1,310 @@
 {% load static %}
-{% static "img" as baseUrl %}
+{% static "images" as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="fr">
 
+<!-- stella-orre/index-3.html  30 Nov 2019 03:48:03 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Staging Template">
-    <meta name="keywords" content="Staging, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="utf-8">
+<title>PMATEL - {%block title %} {% endblock title %} </title>
+<!-- Stylesheets -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 
-    
-    <title>PMATEL - {%block title %} {% endblock title %}</title>
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/slick.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+{% block css %}
 
-    {% block css %}
-
-    {% endblock css %}
+{% endblock css %}
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__logo">
-            <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__widget">
-            <span>Pour la moindre Question</span>
-            <h4>+213 550 93 61 28</h4>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 row justify-content-lg-end">
-                    <div class="header__logo">
-                        <div class="col align-self-start">
-                            <a class="logo" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+	<!-- Header Style Three -->
+    <header class="main-header header-style-three">
+        <!--Header Top-->
+        <div class="header-top">
+            <div class="auto-container clearfix">
+                <div class="top-left clearfix">
+                    <div class="text"><span class="icon flaticon-call-answer"></span> Besoin d'aide ? Appelez maintenant <a href="tel:+213550936128" class="number">+213 550 93 61 28</a></div>
+					
+                </div>
+                <!-- <div class="top-right clearfix">
+					<ul class="info-list">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="blog.html">Inspiration</a></li>
+						<li class="quote"><a href="contact.html">Get Free Quote</a></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <!-- End Header Top -->
+
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <!--Info-->
+                    <div class="logo-outer">
+                        <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="PMATEL logo" title="PMATEL - Site de ventes de produits électriques" width="80" height="80"></a></div>
+                    </div>
+
+                    <!--Nav Box-->
+                    <div class="nav-outer clearfix">
+                        <!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu-1"></span></div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="navbar-header">
+                                <!-- Togg le Button -->      
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon flaticon-menu-1"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="current"><a href="{% url 'index' %}">Accueil</a>
+                                        <!-- <ul>
+                                            <li><a href="index-2.html">Home page 01</a></li>
+                                            <li><a href="index-3.html">Home page 02</a></li>
+                                            <li><a href="index-4.html">Home page 03</a></li>
+											<li><a href="index-5.html">Home page 04</a></li>
+                                            <li><a href="index-6.html">Home page 05</a></li>
+                                            <li class="dropdown"><a href="index-2.html">Header Styles</a>
+                                                <ul>
+                                                    <li><a href="index-2.html">Header Style One</a></li>
+                                                    <li><a href="index-3.html">Header Style Two</a></li>
+                                                    <li><a href="index-4.html">Header Style Three</a></li>
+													<li><a href="index-5.html">Header Style Four</a></li>
+                                                    <li><a href="index-6.html">Header Style Five</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul> -->
+                                    </li>
+									<li><a href="{% url 'about' %}">A Propos</a>
+                                        <!-- <ul>
+                                            <li><a href="about.html">Our Introduction</a></li>
+											<li><a href="team.html">Our Team</a></li>
+											<li><a href="testimonials.html">Testimonials</a></li>
+                                        </ul> -->
+                                    </li>
+                        
+								
+									<li class="dropdown"><a href="{% url 'produits'%}">Nos produits</a>
+                                        <ul>
+                                            <li><a href="{% url 'product-promotion' %}">Produits en promotion</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+									<li><a href="{% url 'cart:cart_detail'%}">
+                                        <span class="icon flaticon-shopping-cart"></span>
+                                        <span class='badge badge-warning' id='label-cart-count'>{{cart|length}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+						
+						<!-- Outer Box -->
+
+						<div class="outer-box clearfix">
+                            <div class="search-box-btn"><span class="icon flaticon-magnifying-glass-1"></span></div>
+							
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li class="{% if request.path == '/' %} active {% endif %}"><a
-                                    href="{% url 'index' %}">Home</a></li>
-                            <li class="{% if request.path == '/solution/' %} active {% endif %}"><a
-                                    href="{% url 'solution' %}">Solutions</a></li>
-                            <li class="{% if request.path == '/produits' %} active {% endif %}"><a
-                                        href="{% url 'produits'%}">Shop</a></li>
-                            </li>
-                            
-                            <li class="{% if request.path == '/about/' %} active {% endif %}"><a
-                                    href="{% url 'about' %}">About</a></li>
-                            </li>
-                            
-                            <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
-                            <li><a href="{% url 'cart:cart_detail'%}" class="shopping-cart"><i class="fas fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__widget">
-                        <span>Pour la moindre Question</span>
-                        <h4>+213 550 93 61 28</h4>
-                    </div>
-                </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
-    </header>
-    <!-- Header Section End -->
-    {% block content %}
+        <!--End Header Upper-->
 
+    	<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="PMATEL logo" title="PMATEL - site de ventes en ligne de produits électriques"></a></div>
+                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+				<!--Social Links-->
+				<div class="social-links">
+					<ul class="clearfix">
+						<li><a href="https://www.facebook.com/camebptalgerie"><span class="fab fa-facebook-square"></span></a></li>
+						<li><a href="#"><span class="fab fa-instagram"></span></a></li>
+					</ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+    </header>
+    <!-- End Main Header -->
+
+	{% block content %}
+	
     {% endblock content %}
 
-
-    <!-- Footer Section Begin -->
-    <footer id="footer" class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
-        <div class="container">
-            <div class="footer__top">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <div class="footer__top__text">
-                            <h2>Pres a travailler avec nous ?</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer__top__newslatter">
-                            <form action="#">
-                                <input type="text" placeholder="Entrez votre email...">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
-                    </div>
+	<!--Main Footer-->
+    <footer class="main-footer">
+		<div class="auto-container">
+        	<!--Widgets Section-->
+            <div class="widgets-section">
+            	<div class="row clearfix">
+                	
+                    <!--big column-->
+                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+                        
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                                <div class="footer-widget logo-widget">
+									<div class="logo">
+                                    	<a href="{% url 'index' %}"><img src="{%static 'images/logo.png' %}" width= "80" height="80" alt="PMATEL - Vente en ligne de produits électriques" /></a>
+                                    </div>
+                                    <div class="text">PMATEL - Le magasin de réference pour la vente des produits électriques!</div>
+                                    <ul class="social-icons">
+                                        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                        <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                        <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
+                                    </ ul>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                                <div class="footer-widget links-widget">
+                                	<h2>Liens Rapides</h2>
+									<div class="widget-content">
+										<ul class="list">
+											<li><a href="{% url 'index' %}">Accueil</a></li>
+                                        	<li><a href="{% url 'about' %}">A propos de PMATEL</a></li>
+                                            <li><a href="{% url 'produits' %}">Catalog</a></li>
+                                            <li><a href="#">FAQ (Bientôt)</a></li>
+                                        </ul>
+                                    </div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+					
+					<!--big column-->
+                    <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+                        
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                                <div class="footer-widget contact-widget">
+									<h2>Contact Info</h2>
+									<div class="widget-content">
+										<a href="tel:+213550936128" class="contact-number">+213 550 93 61 28</a>
+										<ul>
+											<li>Coopérative les vergers 2 – N°10 / Birkhadem - Alger – ALGERIE</li>
+											<li>Email :<a href="mailto:camebptalgerie@pmatel.dz">camebptalgerie@pmatel.dz</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+                            <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                                <div class="footer-widget newsletter-widget">
+                                	<h2>Newsletter</h2>
+									<div class="text">Obtenez des offres spéciales et des réductions</div>
+									<!-- Newsletter Form -->
+									<div class="newsletter-form">
+										<form method="post" action="#">
+											<div class="form-group">
+												<input type="email" name="email" value="" placeholder="Entrez votre adresse email" required>
+												<button type="submit" class="theme-btn btn-style-one"><span class="txt">BIENTÔT</span></button>
+                                                {% csrf_token %} 
+                                            </div>
+										</form>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!--Footer Bottom-->
+            <div class="footer-bottom clearfix">
+                <div class="pull-left">
+                    <div class="copyright"><a href="https://octopus-consulting.com/">Octopus - 2021</a></div>
+                </div>
+                <div class="pull-right">
+                    <a href="{% url 'index' %}">Pmatel</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-2 col-md-5 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
-                        </div>
-                        <p>Coopérative les vergers 2 – N°10
-                            <br />Birkhadem - Alger – ALGERIE</p>
+			
+		</div>
+	</footer>
+	
+</div>  
+<!--End pagewrapper-->
 
-                        <div class="footer__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Liens Rapides</h6>
-                        <ul>
-                            <li><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="{% url 'about' %}">A propos</a></li>
-                            <li><a href="{% url 'solution' %}">Solution</a></li>
-                            <li><a href="{% url 'contact' %}">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Solutions</h6>
-                        <ul>
-                            {% for solution in solutions %}
-                            <li><a href="{{ solution.get_absolute_url }}">{{solution.name}}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__address">
-                        <h6>Coordonnées</h6>
-                        <p>Coopérative les vergers 2 – N°10
-                            <br />Birkhadem - Alger – ALGERIE</p>
-                        <ul>
-                            <li>Info.colorlib@gmail.com</li>
-                            <li>+213 770 638 153</li>
-                            <li>+213 550 93 61 28</li>
-                            <li>+213 23 579 560</li>
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
-
-                        </ul>
-                    </div>
+<!--Search Popup-->
+<div id="search-popup" class="search-popup">
+	<div class="close-search theme-btn"><span class="flaticon-cancel"></span></div>
+	<div class="popup-inner">
+		<div class="overlay-layer"></div>
+    	<div class="search-form">
+        	<form method="get" action="{% url 'product-search' %}">
+            	<div class="form-group">
+                	<fieldset>
+                        <input type="search" class="form-control" name="query" value="" id="query" placeholder="Recherchez un produit" required >
+                        <input type="submit" value="Rechercher" class="theme-btn">
+                    </fieldset>
                 </div>
-            </div>
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-lg-8 col-md-7">
-                        <div class="copyright__text">
-                            <p>Copyright ©
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> Tout droit réservé PMATEL
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5">
-                        <div class="copyright__widget">
-                            <a href="https://octopus-consulting.com.com" target="_blank">OCTOPUS CONSULTING</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
+            
+            <br>
+			<h3>Ou choisissez une catégorie</h3>
+			<ul class="recent-searches">
+				{% for category in categories %}
+					<li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+				{% endfor %}
+			</ul>
         </div>
-    </footer>
-    <!-- Footer Section End -->
+        
+    </div>
+</div>
 
-    <!-- Js Plugins -->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<!--Scroll to top-->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/isotope.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+{% block validate_script %} {% endblock validate_script %}
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/scrollbar.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+{% block javascript %}
+
+{% endblock javascript %}
 </body>
 
+<!-- stella-orre/index-3.html  30 Nov 2019 03:48:05 GMT -->
 </html>

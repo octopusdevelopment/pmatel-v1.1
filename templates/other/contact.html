@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Contactez-Nous
+{% endblock title %}
+{% static "img" as baseUrl %}
+
+{% block css %}
+{% endblock css %}
+
+<!-- Content -->
+{% block content %}
+ <!--Page Title-->
+ <section class="page-title" style="background-image:url({% static 'images/background/home_background_2.jpg' %})">
+    <div class="auto-container">
+        <h2>Contactez-Nous</h2>
+		<ul class="page-breadcrumb">
+                    <li><a href="{% url 'index' %}">Accueil</a></li>
+                    <li>Contact</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+
+	<!-- Contact Form Section -->
+	<section class="contact-form-section" style="background-image:url({% static 'images/background/contact.png' %})">
+		
+		<div class="auto-container">
+		
+		 {% if success %}
+			{% if success == True %}
+			<div class="alert alert-secondary" role="alert">
+				{{message}}
+			</div>
+			{% endif %}
+		 {% endif %}
+
+		 {% if failure %}
+			<div class="alert alert-danger" role="alert">
+				{{message}}
+			</div>
+		 {% endif %}	
+			<!-- Sec Title -->
+			<div class="sec-title">
+				<h2>Entrez en Contact</h2>
+				<div class="text">Avez-vous quelque chose en tête pour nous le faire savoir? Veuillez ne pas tarder à nous connecter via notre formulaire de contact.</div>
+			</div>
+			
+			<div class="row clearfix">
+				
+				<!-- Form Column -->
+				<div class="form-column col-lg-7 col-md-12 col-sm-12">
+					<div class="inner-column">
+						
+						<!-- Contact Form -->
+						<div class="contact-form">
+								
+							<!--Contact Form-->
+							<form method="post" action="{% url 'contact-send' %}" id="contact-form">
+								<div class="row clearfix">
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="text" name="name" placeholder="Nom complet *" required>
+									</div>
+									
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="email" name="email" placeholder="Adresse email" required="false">
+									</div>
+
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="tel" name="phone" placeholder="Téléphone *" required>
+									</div>
+									
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<input type="text" name="subject" placeholder="Sujet *" required>
+									</div>
+									
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<textarea name="message" placeholder="Message *" required></textarea>
+									</div>
+									
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">Envoyer</span></button>
+									</div>
+								</div>
+                                {% csrf_token %} 
+							</form>
+						</div>
+						
+					</div>
+				</div>
+				
+				<!-- Info Column -->
+				<div class="info-column col-lg-5 col-md-12 col-sm-12">
+					<div class="inner-column">
+						
+						<!-- Contact Info List -->
+						<ul class="contact-info-list">
+							<li><strong>Adresse :</strong><br>Coopérative les vergers 2 – N°10 / Birkhadem - Alger – ALGERIE</li>
+						</ul>
+						<!-- Contact Info List -->
+						<ul class="contact-info-list">
+							<li><strong>Téléphone: </strong><a href="tel:+213 550 93 61 28">+213 550 93 61 28</a></li>
+							<li><strong>Email : </strong><a href="mailto:Camebptalgerie@pmatel.dz">Camebptalgerie@pmatel.dz</a></li>
+						</ul>
+						<!-- Contact Info List -->
+						<ul class="contact-info-list">
+							<li><strong>Heures d'Ouverture :</strong><br>8:00H – 18:00H <br> Samedi – Jeudi</li>
+						</ul>
+						
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</section> 
+	<!-- End Contact Form Section -->
+		<!-- Map Section -->
+    <section class="map-section">
+        <div class="outer-container">
+            <div class="map-outer">
+                <div class="map-canvas"
+                    data-zoom="12"
+                    data-lat="36.483721772783774"
+                    data-lng="2.808243623280004"
+                    data-type="roadmap"
+                    data-hue="#ffc400"
+                    data-title="PMATEL - Algérie"
+                    data-icon-path="{% static 'images/icons/map-marker.png' %}"
+                    data-content="(+213) 556 09 64 55 <br> Sam-Jeu: 8.00H - 18.00H">
+                </div>
+            </div>
+        </div>
+    </section>
+<!--End map-->
+
+{% endblock content %}
+
+<!-- End content -->
+
+<!-- Scripts -->
+{% block validate_script %}
+<script src="{% static 'js/validate.js' %}"></script>
+{% endblock validate_script %}
+
+{% block javascript %}
+<!--Google Map APi Key-->
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWwoGEKJ9ft2rtCg1QDzhzeB0wrS0rOWM&callback=initMap">
+</script>
+<script src="{% static 'js/map-script.js' %}"></script>
+<!--End Google Map APi-->
+{% endblock javascript %}
+
+<!-- End scripts -->
