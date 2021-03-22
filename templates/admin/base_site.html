@@ -2,12 +2,27 @@
 
 {% load static %}
 
-{% block branding %}
-  <h1 id="head" style="color: #ff0000;font-weight: 600;">
-      <img src="{% static 'img/logo.png' %}" width="120" alt="">
 
-  </h1>
-{% endblock branding %}
+{% block title %}{{ title }} | {{ site_title|default:_('PMATEL Dashboard') }}{% endblock %}
+
+{% block extrahead %}
+    <link rel="icon" href="{% static 'images/favicon.png' %}" sizes="48x48" />
+{% endblock %}
+
+
+
 {% block extrastyle %}
     <link rel="stylesheet" href="{% static 'css/admin.css' %}">  
 {% endblock extrastyle %}
+
+
+{% block branding %}
+  <h1 id="head">
+    <img src="{% static 'images/logo.png' %}" alt="PMATEL logo" title="PMATEL - Site de ventes de produits électriques" width="60" height="50">
+  </h1>
+{% endblock branding %}
+
+{% block welcome-msg %}
+                Bienvenue
+                <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+{% endblock %}

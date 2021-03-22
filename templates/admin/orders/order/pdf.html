@@ -81,6 +81,7 @@
             Adresse: {{ order.addresse }}<br>
             Wilaya: {{ order.wilaya.name }}<br>
             Commune: {{ order.commune.name }} <br>
+            Livraison: {{order.delivery}} <br>
             {% if order.coupon %}
             Coupon: {{order.coupon.code}} <br>
             Réduction {{order.discount_amount}} DA
@@ -101,7 +102,7 @@
                 {% for item in order.items.all %}
                     <tr class="row{% cycle '1' '2' %}">
                         <td>{{ item.product.name }}</td>
-                        <td class="num">${{ item.price }}</td>
+                        <td class="num">{{ item.price }} DA</td>
                         <td class="num">{{ item.quantity }}</td>
                         <td class="num">{{ item.get_cost }} DA</td>
                     </tr>

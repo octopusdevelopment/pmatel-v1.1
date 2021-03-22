@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Découvrez nos produits
+{% endblock title %}
+{% static "img" as baseUrl %}
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<!-- Background -->
+<section class="page-title" style="background-image:url({% static 'images/background/home_background_2.jpg' %})">
+    <div class="auto-container">
+        <h2 class="first_letter_capital">Votre achat a été bien pris en compte</h2>
+    </div>
+</section>
+<!-- End of background -->
+
+<!-- Order validation -->
+	<section class="interior-section style-three mt-5 mb-5">
+		<div class="auto-container">
+			<div class="inner-container">
+				<div class="row clearfix">
+					
+					<!-- Image Column -->
+					<div class="content-column col-lg-4 col-md-12 col-sm-12">
+						<div class="inner-column ">
+                    
+                               <h2>Informations</h2>
+                                <div class="text">Mr/Mme: <span>{{order.first_name}} {{order.last_name}}</span>
+                                <br>
+                                Numéro de Commande: <span class="dark">{{order.id}}</span>
+                                <br>
+                                Date: <span>{{order.created.date}} à {{order.created.time}}</span>
+                                <br>
+                                Total: <span class="dark">{{total_price}} DA
+                            </div>
+						</div>
+					</div>
+					
+					<!-- Content Column -->
+					<div class="content-column col-lg-8 col-md-12 col-sm-12">
+						<div class="inner-column">
+							<h2>Merci d'avoir effectué vos achats en ligne chez nous!</h2>
+							<div class="text">Un email vous a été envoyé dans lequel vous trouverez votre facture. Nous vous contacterons bientôt pour confirmer la commande / procéder au paiement.</div>
+							
+                            <div class="bold-text pb-3">PMATEL:</div>
+                            <div class="row clearfix">
+							
+								<!-- Interior Block -->
+								<div class="interior-block col-lg-4 col-md-4 col-sm-12">
+									<div class="block-inner">
+										<div class="icon-box">
+											<span class="icon flaticon-award-1"></span>
+										</div>
+										<h3>Qualité Supérieure</h3>
+									</div>
+								</div>
+								
+								<!-- Interior Block -->
+								<div class="interior-block col-lg-4 col-md-4 col-sm-12">
+									<div class="block-inner">
+										<div class="icon-box">
+											<span class="icon flaticon-answer"></span>
+										</div>
+										<h3>Service Professionel</h3>
+									</div>
+								</div>
+								
+								<!-- Interior Block -->
+								<div class="interior-block col-lg-4 col-md-4 col-sm-12">
+									<div class="block-inner">
+										<div class="icon-box">
+											<span class="icon flaticon-hand"></span>
+										</div>
+										<h3>Satisfaction Garrantie</h3>
+									</div>
+								</div>
+								
+							</div>
+							
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- Order validated -->
+{% endblock content %}

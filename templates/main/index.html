@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Accueil
+{% endblock title %}
+{% static "img" as baseUrl %}
+{% block content %}
+ <!-- Banner Section -->
+ <section class="banner-section" style="background-image:url({% static 'images/background/home_background_2.jpg' %})">
+    <div class="auto-container">
+        <div class="row clearfix">
+            
+            <!-- Form Column -->
+            <div class="form-column col-lg-4 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <!-- Form Box -->
+                    <div class="form-box">
+                        <h2>Besoin d'aide ?</h2>
+                        
+                        <!-- Default Form -->
+                        <div class="default-form">
+                            <form method="get" action="{% url 'product-search-advanced' %}">
+                            
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <input type="text" name="product" value="" placeholder="Nom du produit">
+                                </div>
+                                
+                                <!-- Form Group -->
+                               <div class="form-group">
+                                    <select class="custom-select-box" name="category">
+                                        <option value="">Catégorie</option>
+                                        {% for category in categories %}
+                                            <option value="{{category.id}}" class="first_letter_capital">{{category.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <select class="custom-select-box" name="status">
+                                        <option value="">Tous</option>
+                                        <option value="N">Nouveau</option>
+                                        <option value="P">En promotion</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="theme-btn submit-btn">Commencer la recherche</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Column -->
+            <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    
+                    <div class="content">
+                        <h3>Distributeur CAME BPT exclusif</h3>
+                        <div class="text">Une assistance technique et un service après vente assurés à long terme.<br>Votre satisfaction avant tout.</div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- End Banner Section -->
+
+
+
+
+{% endblock content %}

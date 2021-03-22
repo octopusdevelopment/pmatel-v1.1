@@ -1,0 +1,71 @@
+#head {
+    background-color: transparent;
+}
+
+#header {
+    color: #fff;
+}
+#header,
+.module h2, .module caption, .inline-group h2 {
+    background-color: #1c4e80;
+}
+
+div.breadcrumbs {
+    background-color: #484848;
+}
+
+/* Links */
+
+a:link, a:visited {
+    color: #23282d;
+}
+
+a:focus, a:hover {
+    color: #3d4146;
+}
+
+#user-tools a:hover {
+    color: #3d4146;
+}
+
+.object-tools a:link, .object-tools a:visited {
+    background-color: #23282d;
+}
+
+.submit-row a.deletelink {
+    background: #d32d41;
+}
+/* buttons */
+.button.default,
+input[type=submit].default,
+.submit-row input.default {
+    background-color: #23282d;
+}
+
+.button.default:hover,
+input[type=submit].default:hover,
+.submit-row input.default:hover,
+.button.default:focus,
+input[type=submit].default:focus,
+.submit-row input.default:focus {
+    background-color: #0091d5;
+}
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background-color: #23282d;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover,
+.button:focus, input[type=submit]:focus, input[type=button]:focus, .submit-row input:focus, a.button:focus {
+    background-color: #0091d5;
+}
+
+.button:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+.submit-row input:hover, a.button:hover,
+.button:focus,
+input[type=submit]:focus,
+input[type=button]:focus,
+.submit-row input:focus, a.button:focus {
+    background-color: #0091d5;
+}

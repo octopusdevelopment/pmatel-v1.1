@@ -41,7 +41,7 @@ class Order(models.Model):
     first_name  = models.CharField(verbose_name="Prénom" , max_length=50)
     last_name   = models.CharField(verbose_name="Nom" , max_length=50)
     addresse    = models.CharField(verbose_name="Adresse" , max_length=250)
-    phone       = models.CharField(verbose_name="Téléphone" , max_length=25)
+    phone       = models.CharField(verbose_name="Téléphone" , max_length=25, null= False, blank=False)
     email       = models.EmailField(verbose_name="Email", null=True, blank = True)
     wilaya      = models.ForeignKey(Wilaya, on_delete=models.SET_NULL, null=True, blank=True)
     commune     = models.ForeignKey(Commune, on_delete=models.SET_NULL, null=True, blank=True)
@@ -50,6 +50,7 @@ class Order(models.Model):
     note        = models.TextField(verbose_name= "Note", blank=True, null=True)
     paid        = models.BooleanField(default=False, verbose_name="Payée")
     confirmed   = models.BooleanField(default=False, verbose_name="Confirmée")
+    delivery    = models.DecimalField( max_digits=10, verbose_name="Coût de Livraison", decimal_places=2)
     coupon = models.ForeignKey(Coupon, verbose_name="Coupon", related_name='orders', null=True, blank=True, on_delete= models.SET_NULL)
     discount_amount = models.PositiveIntegerField(default=0, validators= [MinValueValidator(0), MaxValueValidator(100)])
     
@@ -62,14 +63,14 @@ class Order(models.Model):
     
     def get_total_cost(self):
         total_cost = sum(item.get_cost() for item in self.items.all())
-        total_cost = total_cost - self.discount_amount
+        total_cost = total_cost - self.discount_amount 
         if total_cost < 0:
             total_cost = 0
-        return total_cost
+        return total_cost + self.delivery
     
     def get_total_cost_without_discount(self):
-        total_cost = sum(item.get_cost() for item in self.items.all())
-        return total_cost
+        total_cost = sum(item.get_cost() for item in self.items.all()) 
+        return total_cost + self.delivery
     
     
 class OrderItem(models.Model):
