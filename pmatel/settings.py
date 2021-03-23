@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG')
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE')
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE')
 ALLOWED_HOSTS = ['*']
