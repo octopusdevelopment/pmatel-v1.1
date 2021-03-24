@@ -18,7 +18,7 @@ def order_created(order_id):
     email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [order.email])
     html = render_to_string('admin/orders/order/pdf.html', {"order":order})
     out = BytesIO()
-    stylesheets = [weasyprint.CSS(settings.STATIC_ROOT + '/css/pdf.css')]
+    #stylesheets = [weasyprint.CSS(settings.STATIC_ROOT + '/css/pdf.css')]
     weasyprint.HTML(string=html).write_pdf(out)
     
      # attach PDF file
