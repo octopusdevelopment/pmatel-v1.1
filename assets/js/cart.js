@@ -54,7 +54,7 @@ const change_quantity = function(e) {
         let csrftoken = getCookie('csrftoken');
 
         // Url
-        const url = `${window.location.protocol}://${window.location.host}/panier/modifier/${id}/`
+        const url = `${window.location.origin}/panier/modifier/${id}/`
 
 
     fetch(url, {
