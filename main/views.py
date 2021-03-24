@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 #search
-from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+
 # shuffle elements catalogue
 import random
 
@@ -55,19 +55,17 @@ class SearchProductView(ListView):
                 len(status)
             except:
                 status = ''
-                
-            search_vector = SearchVector('name', config='french', weight='A') + SearchVector('description', config='french', weight='B')
-            search_query = SearchQuery(product)    
+                   
             if ( len(product) & len(status) & len(category)):
-                query_products = Product.show.filter(status = status, category__id=category).annotate(search= search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
+                query_products = Product.show.filter(status = status, category__id=category, name__contains=product)
             elif(len(product) & len(status)):
-                query_products = Product.show.filter(status = status).annotate(search= search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
+                query_products = Product.show.filter(status = status,name__contains=product)
             elif(len(product) & len(category)):
-                query_products = Product.show.filter(category__id=category).annotate(search= search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
+                query_products = Product.show.filter(category__id=category, name__contains=product)
             elif(len(status) & len(category)):
                 query_products = Product.show.filter(status = status, category__id=category) 
             elif len(product):
-                query_products = Product.show.annotate(search= search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
+                query_products = Product.show.filter(name__contains=product)
                 print("INSIDE PRODUCT")
             elif len(status):
                 query_products = Product.show.filter(status = status) 
@@ -172,9 +170,7 @@ class SearchCatalogView(ListView):
             form = SearchForm(self.request.GET)
             if form.is_valid():
                 query = form.cleaned_data['query']     
-                search_vector = SearchVector('name', config='french', weight='A') + SearchVector('description', config='french', weight='B')
-                search_query = SearchQuery(query)
-                self.products = Product.show.annotate(search= search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
+                self.products = Product.show.filter(name__contains=query).order_by('name')
                 
         return self.products
     
