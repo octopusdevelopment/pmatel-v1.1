@@ -41,7 +41,7 @@ const change_commune = function(e) {
     if(e.target.id == 'wilaya') {
         const url_value = url_input.getAttribute('data-communes-url')
         const wilaya_id = e.target.value
-        const url = `http://${window.location.host}${url_value}?wilaya=${wilaya_id}`
+        const url = `${window.location.protocol}://${window.location.host}${url_value}?wilaya=${wilaya_id}`
         console.log('url', url)
     fetch(url, {
         headers : { 
@@ -77,7 +77,7 @@ const change_commune = function(e) {
 }
 
 const change_wilaya = function(wilaya_id){
-    const url = `http://${window.location.host}/commande/fetch/load-wilaya/?wilaya=${wilaya_id}`
+    const url = `${window.location.protocol}://${window.location.host}/commande/fetch/load-wilaya/?wilaya=${wilaya_id}`
     fetch(url, {
         headers : { 
             'Accept': 'application/json'
@@ -113,7 +113,7 @@ const change_quantity = function(e) {
     // Csrf token:
     let csrftoken = getCookie('csrftoken');
     // url 
-    const url = `http://${window.location.host}/commande/modifier-quantite/`
+    const url = `${window.location.protocol}://${window.location.host}/commande/modifier-quantite/`
 
     // send my request to change the quantity
     fetch(url, {
@@ -150,7 +150,7 @@ const apply_coupon = function(e) {
     // Csrf token:
     let csrftoken = getCookie('csrftoken');
     // url 
-    const url = `http://${window.location.host}/commande/ajouter-coupon/`
+    const url = `${window.location.protocol}://${window.location.host}/commande/ajouter-coupon/`
 
     // send my request to change the quantity
     fetch(url, {
