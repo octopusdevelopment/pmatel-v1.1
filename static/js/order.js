@@ -41,7 +41,7 @@ const change_commune = function(e) {
     if(e.target.id == 'wilaya') {
         const url_value = url_input.getAttribute('data-communes-url')
         const wilaya_id = e.target.value
-        const url = `${window.location.protocol}://${window.location.host}${url_value}?wilaya=${wilaya_id}`
+        const url = `${window.location.origin}${url_value}?wilaya=${wilaya_id}`
         console.log('url', url)
     fetch(url, {
         headers : { 
@@ -77,7 +77,7 @@ const change_commune = function(e) {
 }
 
 const change_wilaya = function(wilaya_id){
-    const url = `${window.location.protocol}://${window.location.host}/commande/fetch/load-wilaya/?wilaya=${wilaya_id}`
+    const url = `${window.location.origin}/commande/fetch/load-wilaya/?wilaya=${wilaya_id}`
     fetch(url, {
         headers : { 
             'Accept': 'application/json'
@@ -113,7 +113,7 @@ const change_quantity = function(e) {
     // Csrf token:
     let csrftoken = getCookie('csrftoken');
     // url 
-    const url = `${window.location.protocol}://${window.location.host}/commande/modifier-quantite/`
+    const url = `${window.location.origin}/commande/modifier-quantite/`
 
     // send my request to change the quantity
     fetch(url, {
@@ -150,7 +150,8 @@ const apply_coupon = function(e) {
     // Csrf token:
     let csrftoken = getCookie('csrftoken');
     // url 
-    const url = `${window.location.protocol}://${window.location.host}/commande/ajouter-coupon/`
+    const url = `${window.location.origin}/commande/ajouter-coupon/`
+    console.log('coupon', url)
 
     // send my request to change the quantity
     fetch(url, {
@@ -256,16 +257,16 @@ const update_front_after_quantity = function(result) {
 const update_front_after_coupon = function(result) {
     const total_price_before = parseFloat(state.product) * parseFloat(state.quantity)
     let reduction
-
+    console.log('result!!!', result)
     if (result.percentage != 0) {
         state.discount_percentage = result.percentage
         state.discount_amount = 0
         reduction = `${result.percentage} %`
     }
     else {
-        state.discount_amount = result.discount
+        state.discount_amount = result.amount
         state.discount_percentage = 0
-        reduction = `- ${result.discount} DA`
+        reduction = `- ${result.amount} DA`
     }
 
     const new_element =  `
