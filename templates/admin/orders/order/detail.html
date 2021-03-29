@@ -7,27 +7,27 @@
 {% block breadcrumbs %}
     <div class="breadcrumbs">
         <a href="{% url 'admin:index'%}">Home</a> &rsaquo;
-        <a href="{% url 'admin:orders_order_changelist' %}">Orders</a>
+        <a href="{% url 'admin:orders_order_changelist' %}">Commandes</a>
         &rsaquo;
-        <a href="{% url 'admin:orders_order_change' order.id %}">Order {{order.id }}</a>
+        <a href="{% url 'admin:orders_order_change' order.id %}">Commande {{order.id }}</a>
         &rsaquo; Detail
     </div>
 {% endblock %}
 
 {% block content %}
-    <h1>Order {{ order.id }}</h1>
+    <h1>Commande {{ order.id }}</h1>
         <ul class="object-tools">
             <li>
-            <a href="#" onclick="window.print();">Print order</a>
+            <a href="#" onclick="window.print();">Imprimer</a>
             </li>
         </ul>
     <table>
             <tr>
-                <th>Created</th>
+                <th>Crée</th>
                 <td>{{ order.created }}</td>
             </tr>
             <tr>
-                    <th>Customer</th>
+                    <th>Client</th>
                     <td>{{ order.first_name }} {{ order.last_name }}</td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                 <td><a href="mailto:{{ order.email }}">{{ order.email }}</a></td>
             </tr>
             <tr>
-            <th>Address</th>
+            <th>Adresse</th>
                 <td>
                     {{ order.addresse }}
                 </td>
@@ -82,7 +82,7 @@
             {% endif %}
             <tr>
                 <th>Status</th>
-                <td>{% if order.paid %}Payée{% else %}Pending payment{% endif %}</
+                <td>{% if order.paid %}Payée{% else %}Non payée{% endif %}</
             td>
             </tr>
     </table>
@@ -91,9 +91,9 @@
         <table style="width:100%">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
                     <th>Total</th>
                 </tr>
         </thead>

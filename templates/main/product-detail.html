@@ -149,7 +149,7 @@
     </header>
     <!-- End Main Header -->
 
-    <section class="page-title" style="background-image:url({% static 'images/background/5.jpg' %})">
+    <section class="page-title" style="background-image:url({% static 'images/background/home_background_2.jpg' %})">
     	<div class="auto-container">
         	<h2>Détails du produit</h2>
             <ul class="page-breadcrumb">
@@ -188,12 +188,12 @@
                                     <div class="other-options clearfix">
                                         <form action="{% url 'cart:cart_add_one_product_with_quantity' product.slug product.id %}" method="POST" id="product_details_form">
                                         <div class="item-quantity"><label class="field-label">Quantité :</label><input class="quantity-spinner" type="number" value="1" min="1" name="quantity"></div>
-                                        <div class="row">
-                                            <div class="col">
+                                        <div class="row justify-content-center">
+                                            <div class="col text-center">
                                                 <button type="submit" class="theme-btn cart-btn">Ajouter au panier</button>
                                             </div>
                                             
-                                            <div class="col">
+                                            <div class="col text-center">
                                                 <a href="{% url 'orders:order_create_one_product' product.id %}" class="theme-btn cart-btn">Acheter maintenant</a>
                                             </div>
                                             {% csrf_token %} 
@@ -231,9 +231,9 @@
                                 <div class="tab active-tab" id="prod-details">
                                     <div class="content">
                                         {% if product.sub_title %}
-                                        <h3 style="text-transform:capitalize">{{product.sub_title}}</h3>
+                                        <h4 class="first_letter_capital">{{product.sub_title}}</h4>
                                         {% endif %}
-                                        <h4 style="text-transform:capitalize">Catégorie: {{product.category}}</h4>
+                                        <h5 class="first_letter_capital">Catégorie: {{product.category}}</h5>
                                         <p>{{product.get_description}}</p>
                                     </div>
                                 </div>
@@ -272,6 +272,7 @@
                         </div>
                         
                     </div>
+                    <!--End Product Info Tabs-->
                     <!--End Product Info Tabs-->
                     
                 </div>

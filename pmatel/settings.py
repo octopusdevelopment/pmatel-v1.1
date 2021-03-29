@@ -138,11 +138,11 @@ CKEDITOR_CONFIGS = {
     'default':
         {
             'skin': 'moono',
-            'toolbar': 'full', 
+            'toolbar': 'full',
             "removePlugins": "stylesheetparser",
             'toolbar_Custom': [
-                ['Bold', 'Link', 'Unlink', 'Image'], 
-            ], 
+                ['Bold', 'Link', 'Unlink', 'Image'],
+            ],
             'extraPlugins': ','.join(['codesnippet']),
 }}
 
@@ -179,7 +179,7 @@ CART_SESSION_ID = 'cart'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Hildweig@gmail.com'
-EMAIL_HOST_PASSWORD = 'euevnbkbghiutshv'
+EMAIL_HOST_USER = 'octopus.messagerie@gmail.com'
+EMAIL_HOST_PASSWORD = 'txogjbketqbbkqxe'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

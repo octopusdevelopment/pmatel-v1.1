@@ -1,26 +1,22 @@
-from celery import task
 from io import BytesIO
-from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
 from django.conf import settings
-from .models import Order
 import weasyprint
 
-@task
-def order_created(order_id):
-    order = Order.objects.get(id=order_id)
+
+def order_created(order):
     subject = f'PMATEL - Commande Numéro° {order.id}'
     message = f'Cher/Chère {order.first_name},\n' \
               f'Vous avez passé une commande avec succès, veuillez trouver votre facture en piece jointe.'
-    
+
     email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [order.email])
     html = render_to_string('admin/orders/order/pdf.html', {"order":order})
     out = BytesIO()
     #stylesheets = [weasyprint.CSS(settings.STATIC_ROOT + '/css/pdf.css')]
     weasyprint.HTML(string=html).write_pdf(out)
-    
+
      # attach PDF file
     email.attach(f'order_{order.id}.pdf', out.getvalue(), 'application/pdf')
     email.send()
@@ -29,7 +25,7 @@ def order_created(order_id):
 
 # @task
 # def order_validated(order_id):
-    
+
 #     order = Order.objects.get(id=order_id)
 #     subject = f'PMATEL - Commande Numéro° {order.id}'
 #     message = 'Merci de nous avoir fait confiance.\n Veuillez trouver votre facture en piece jointe.'
@@ -38,7 +34,7 @@ def order_created(order_id):
 #     out = BytesIO()
 #     stylesheets = [weasyprint.CSS(settings.STATIC_ROOT + '/css/pdf.css')]
 #     weasyprint.HTML(string=html).write_pdf(out)
-    
+
 #      # attach PDF file
 #     email.attach(f'order_{order.id}.pdf', out.getvalue(), 'application/pdf')
 #     email.send()
